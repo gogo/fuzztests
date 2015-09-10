@@ -13,49 +13,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-type TheTestEnum3 int32
-
-const (
-	TheTestEnum3_D TheTestEnum3 = 0
-	TheTestEnum3_E TheTestEnum3 = 1
-	TheTestEnum3_F TheTestEnum3 = 2
-)
-
-var TheTestEnum3_name = map[int32]string{
-	0: "D",
-	1: "E",
-	2: "F",
-}
-var TheTestEnum3_value = map[string]int32{
-	"D": 0,
-	"E": 1,
-	"F": 2,
-}
-
-func (x TheTestEnum3) String() string {
-	return proto.EnumName(TheTestEnum3_name, int32(x))
-}
-
-type NestedDefinition3_NestedEnum3 int32
-
-const (
-	NestedDefinition3_TYPE_NESTED3 NestedDefinition3_NestedEnum3 = 0
-	NestedDefinition3_TYPE_NESTE3  NestedDefinition3_NestedEnum3 = 1
-)
-
-var NestedDefinition3_NestedEnum3_name = map[int32]string{
-	0: "TYPE_NESTED3",
-	1: "TYPE_NESTE3",
-}
-var NestedDefinition3_NestedEnum3_value = map[string]int32{
-	"TYPE_NESTED3": 0,
-	"TYPE_NESTE3":  1,
-}
-
-func (x NestedDefinition3_NestedEnum3) String() string {
-	return proto.EnumName(NestedDefinition3_NestedEnum3_name, int32(x))
-}
-
 type NinOptNative3 struct {
 	Field1  float64 `protobuf:"fixed64,1,opt,name=Field1,proto3" json:"Field1,omitempty"`
 	Field2  float32 `protobuf:"fixed32,2,opt,name=Field2,proto3" json:"Field2,omitempty"`
@@ -226,27 +183,10 @@ func (m *Nil3) Reset()         { *m = Nil3{} }
 func (m *Nil3) String() string { return proto.CompactTextString(m) }
 func (*Nil3) ProtoMessage()    {}
 
-type NinOptEnum3 struct {
-	Field1 TheTestEnum3 `protobuf:"varint,1,opt,name=Field1,proto3,enum=fuzztests.TheTestEnum3" json:"Field1,omitempty"`
-}
-
-func (m *NinOptEnum3) Reset()         { *m = NinOptEnum3{} }
-func (m *NinOptEnum3) String() string { return proto.CompactTextString(m) }
-func (*NinOptEnum3) ProtoMessage()    {}
-
-type NinRepEnum3 struct {
-	Field1 []TheTestEnum3 `protobuf:"varint,1,rep,name=Field1,enum=fuzztests.TheTestEnum3" json:"Field1,omitempty"`
-}
-
-func (m *NinRepEnum3) Reset()         { *m = NinRepEnum3{} }
-func (m *NinRepEnum3) String() string { return proto.CompactTextString(m) }
-func (*NinRepEnum3) ProtoMessage()    {}
-
 type NestedDefinition3 struct {
-	Field1    int64                                              `protobuf:"varint,1,opt,name=Field1,proto3" json:"Field1,omitempty"`
-	EnumField NestedDefinition3_NestedEnum3                      `protobuf:"varint,2,opt,name=EnumField,proto3,enum=fuzztests.NestedDefinition3_NestedEnum3" json:"EnumField,omitempty"`
-	NNM       *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,3,opt,name=NNM" json:"NNM,omitempty"`
-	NM        *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,4,opt,name=NM" json:"NM,omitempty"`
+	Field1 int64                                              `protobuf:"varint,1,opt,name=Field1,proto3" json:"Field1,omitempty"`
+	NNM    *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,3,opt,name=NNM" json:"NNM,omitempty"`
+	NM     *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,4,opt,name=NM" json:"NM,omitempty"`
 }
 
 func (m *NestedDefinition3) Reset()         { *m = NestedDefinition3{} }
@@ -297,7 +237,6 @@ func (*NestedDefinition3_NestedMessage3_NestedNestedMsg3) ProtoMessage() {}
 
 type NestedScope3 struct {
 	A *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,1,opt,name=A" json:"A,omitempty"`
-	B NestedDefinition3_NestedEnum3                      `protobuf:"varint,2,opt,name=B,proto3,enum=fuzztests.NestedDefinition3_NestedEnum3" json:"B,omitempty"`
 	C *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,3,opt,name=C" json:"C,omitempty"`
 }
 
@@ -317,9 +256,4 @@ func (m *NestedScope3) GetC() *NestedDefinition3_NestedMessage3 {
 		return m.C
 	}
 	return nil
-}
-
-func init() {
-	proto.RegisterEnum("fuzztests.TheTestEnum3", TheTestEnum3_name, TheTestEnum3_value)
-	proto.RegisterEnum("fuzztests.NestedDefinition3_NestedEnum3", NestedDefinition3_NestedEnum3_name, NestedDefinition3_NestedEnum3_value)
 }

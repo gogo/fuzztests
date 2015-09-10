@@ -17,11 +17,6 @@ It has these top-level messages:
 	NinRepStruct
 	NinNestedStruct
 	Nil
-	NinOptEnum
-	NinRepEnum
-	NinOptEnumDefault
-	MyExtendable
-	OtherExtenable
 	NestedDefinition
 	NestedScope
 	NinOptNativeDefault
@@ -34,72 +29,6 @@ import math "math"
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = math.Inf
-
-type TheTestEnum int32
-
-const (
-	TheTestEnum_A TheTestEnum = 0
-	TheTestEnum_B TheTestEnum = 1
-	TheTestEnum_C TheTestEnum = 2
-)
-
-var TheTestEnum_name = map[int32]string{
-	0: "A",
-	1: "B",
-	2: "C",
-}
-var TheTestEnum_value = map[string]int32{
-	"A": 0,
-	"B": 1,
-	"C": 2,
-}
-
-func (x TheTestEnum) Enum() *TheTestEnum {
-	p := new(TheTestEnum)
-	*p = x
-	return p
-}
-func (x TheTestEnum) String() string {
-	return proto.EnumName(TheTestEnum_name, int32(x))
-}
-func (x *TheTestEnum) UnmarshalJSON(data []byte) error {
-	value, err := proto.UnmarshalJSONEnum(TheTestEnum_value, data, "TheTestEnum")
-	if err != nil {
-		return err
-	}
-	*x = TheTestEnum(value)
-	return nil
-}
-
-type NestedDefinition_NestedEnum int32
-
-const (
-	NestedDefinition_TYPE_NESTED NestedDefinition_NestedEnum = 1
-)
-
-var NestedDefinition_NestedEnum_name = map[int32]string{
-	1: "TYPE_NESTED",
-}
-var NestedDefinition_NestedEnum_value = map[string]int32{
-	"TYPE_NESTED": 1,
-}
-
-func (x NestedDefinition_NestedEnum) Enum() *NestedDefinition_NestedEnum {
-	p := new(NestedDefinition_NestedEnum)
-	*p = x
-	return p
-}
-func (x NestedDefinition_NestedEnum) String() string {
-	return proto.EnumName(NestedDefinition_NestedEnum_name, int32(x))
-}
-func (x *NestedDefinition_NestedEnum) UnmarshalJSON(data []byte) error {
-	value, err := proto.UnmarshalJSONEnum(NestedDefinition_NestedEnum_value, data, "NestedDefinition_NestedEnum")
-	if err != nil {
-		return err
-	}
-	*x = NestedDefinition_NestedEnum(value)
-	return nil
-}
 
 type NinOptNative struct {
 	Field1           *float64 `protobuf:"fixed64,1,opt" json:"Field1,omitempty"`
@@ -677,138 +606,8 @@ func (m *Nil) Reset()         { *m = Nil{} }
 func (m *Nil) String() string { return proto.CompactTextString(m) }
 func (*Nil) ProtoMessage()    {}
 
-type NinOptEnum struct {
-	Field1           *TheTestEnum `protobuf:"varint,1,opt,enum=fuzztests.TheTestEnum" json:"Field1,omitempty"`
-	XXX_unrecognized []byte       `json:"-"`
-}
-
-func (m *NinOptEnum) Reset()         { *m = NinOptEnum{} }
-func (m *NinOptEnum) String() string { return proto.CompactTextString(m) }
-func (*NinOptEnum) ProtoMessage()    {}
-
-func (m *NinOptEnum) GetField1() TheTestEnum {
-	if m != nil && m.Field1 != nil {
-		return *m.Field1
-	}
-	return TheTestEnum_A
-}
-
-type NinRepEnum struct {
-	Field1           []TheTestEnum `protobuf:"varint,1,rep,enum=fuzztests.TheTestEnum" json:"Field1,omitempty"`
-	XXX_unrecognized []byte        `json:"-"`
-}
-
-func (m *NinRepEnum) Reset()         { *m = NinRepEnum{} }
-func (m *NinRepEnum) String() string { return proto.CompactTextString(m) }
-func (*NinRepEnum) ProtoMessage()    {}
-
-func (m *NinRepEnum) GetField1() []TheTestEnum {
-	if m != nil {
-		return m.Field1
-	}
-	return nil
-}
-
-type NinOptEnumDefault struct {
-	Field1           *TheTestEnum `protobuf:"varint,1,opt,enum=fuzztests.TheTestEnum,def=2" json:"Field1,omitempty"`
-	XXX_unrecognized []byte       `json:"-"`
-}
-
-func (m *NinOptEnumDefault) Reset()         { *m = NinOptEnumDefault{} }
-func (m *NinOptEnumDefault) String() string { return proto.CompactTextString(m) }
-func (*NinOptEnumDefault) ProtoMessage()    {}
-
-const Default_NinOptEnumDefault_Field1 TheTestEnum = TheTestEnum_C
-
-func (m *NinOptEnumDefault) GetField1() TheTestEnum {
-	if m != nil && m.Field1 != nil {
-		return *m.Field1
-	}
-	return Default_NinOptEnumDefault_Field1
-}
-
-type MyExtendable struct {
-	Field1           *int64                    `protobuf:"varint,1,opt" json:"Field1,omitempty"`
-	XXX_extensions   map[int32]proto.Extension `json:"-"`
-	XXX_unrecognized []byte                    `json:"-"`
-}
-
-func (m *MyExtendable) Reset()         { *m = MyExtendable{} }
-func (m *MyExtendable) String() string { return proto.CompactTextString(m) }
-func (*MyExtendable) ProtoMessage()    {}
-
-var extRange_MyExtendable = []proto.ExtensionRange{
-	{100, 199},
-}
-
-func (*MyExtendable) ExtensionRangeArray() []proto.ExtensionRange {
-	return extRange_MyExtendable
-}
-func (m *MyExtendable) ExtensionMap() map[int32]proto.Extension {
-	if m.XXX_extensions == nil {
-		m.XXX_extensions = make(map[int32]proto.Extension)
-	}
-	return m.XXX_extensions
-}
-
-func (m *MyExtendable) GetField1() int64 {
-	if m != nil && m.Field1 != nil {
-		return *m.Field1
-	}
-	return 0
-}
-
-type OtherExtenable struct {
-	Field2           *int64                    `protobuf:"varint,2,opt" json:"Field2,omitempty"`
-	Field13          *int64                    `protobuf:"varint,13,opt" json:"Field13,omitempty"`
-	M                *MyExtendable             `protobuf:"bytes,1,opt" json:"M,omitempty"`
-	XXX_extensions   map[int32]proto.Extension `json:"-"`
-	XXX_unrecognized []byte                    `json:"-"`
-}
-
-func (m *OtherExtenable) Reset()         { *m = OtherExtenable{} }
-func (m *OtherExtenable) String() string { return proto.CompactTextString(m) }
-func (*OtherExtenable) ProtoMessage()    {}
-
-var extRange_OtherExtenable = []proto.ExtensionRange{
-	{14, 16},
-	{10, 12},
-}
-
-func (*OtherExtenable) ExtensionRangeArray() []proto.ExtensionRange {
-	return extRange_OtherExtenable
-}
-func (m *OtherExtenable) ExtensionMap() map[int32]proto.Extension {
-	if m.XXX_extensions == nil {
-		m.XXX_extensions = make(map[int32]proto.Extension)
-	}
-	return m.XXX_extensions
-}
-
-func (m *OtherExtenable) GetField2() int64 {
-	if m != nil && m.Field2 != nil {
-		return *m.Field2
-	}
-	return 0
-}
-
-func (m *OtherExtenable) GetField13() int64 {
-	if m != nil && m.Field13 != nil {
-		return *m.Field13
-	}
-	return 0
-}
-
-func (m *OtherExtenable) GetM() *MyExtendable {
-	if m != nil {
-		return m.M
-	}
-	return nil
-}
-
 type NestedDefinition struct {
 	Field1           *int64                                          `protobuf:"varint,1,opt" json:"Field1,omitempty"`
-	EnumField        *NestedDefinition_NestedEnum                    `protobuf:"varint,2,opt,enum=fuzztests.NestedDefinition_NestedEnum" json:"EnumField,omitempty"`
 	NNM              *NestedDefinition_NestedMessage_NestedNestedMsg `protobuf:"bytes,3,opt" json:"NNM,omitempty"`
 	NM               *NestedDefinition_NestedMessage                 `protobuf:"bytes,4,opt" json:"NM,omitempty"`
 	XXX_unrecognized []byte                                          `json:"-"`
@@ -823,13 +622,6 @@ func (m *NestedDefinition) GetField1() int64 {
 		return *m.Field1
 	}
 	return 0
-}
-
-func (m *NestedDefinition) GetEnumField() NestedDefinition_NestedEnum {
-	if m != nil && m.EnumField != nil {
-		return *m.EnumField
-	}
-	return NestedDefinition_TYPE_NESTED
 }
 
 func (m *NestedDefinition) GetNNM() *NestedDefinition_NestedMessage_NestedNestedMsg {
@@ -892,7 +684,6 @@ func (m *NestedDefinition_NestedMessage_NestedNestedMsg) GetNestedNestedField1()
 
 type NestedScope struct {
 	A                *NestedDefinition_NestedMessage_NestedNestedMsg `protobuf:"bytes,1,opt" json:"A,omitempty"`
-	B                *NestedDefinition_NestedEnum                    `protobuf:"varint,2,opt,enum=fuzztests.NestedDefinition_NestedEnum" json:"B,omitempty"`
 	C                *NestedDefinition_NestedMessage                 `protobuf:"bytes,3,opt" json:"C,omitempty"`
 	XXX_unrecognized []byte                                          `json:"-"`
 }
@@ -906,13 +697,6 @@ func (m *NestedScope) GetA() *NestedDefinition_NestedMessage_NestedNestedMsg {
 		return m.A
 	}
 	return nil
-}
-
-func (m *NestedScope) GetB() NestedDefinition_NestedEnum {
-	if m != nil && m.B != nil {
-		return *m.B
-	}
-	return NestedDefinition_TYPE_NESTED
 }
 
 func (m *NestedScope) GetC() *NestedDefinition_NestedMessage {
@@ -1063,27 +847,4 @@ func (m *NinOptNativeDefault) GetField15() []byte {
 		return m.Field15
 	}
 	return nil
-}
-
-var E_FieldA = &proto.ExtensionDesc{
-	ExtendedType:  (*MyExtendable)(nil),
-	ExtensionType: (*float64)(nil),
-	Field:         100,
-	Name:          "fuzztests.FieldA",
-	Tag:           "fixed64,100,opt",
-}
-
-var E_FieldB = &proto.ExtensionDesc{
-	ExtendedType:  (*MyExtendable)(nil),
-	ExtensionType: (*NinOptNative)(nil),
-	Field:         101,
-	Name:          "fuzztests.FieldB",
-	Tag:           "bytes,101,opt",
-}
-
-func init() {
-	proto.RegisterEnum("fuzztests.TheTestEnum", TheTestEnum_name, TheTestEnum_value)
-	proto.RegisterEnum("fuzztests.NestedDefinition_NestedEnum", NestedDefinition_NestedEnum_name, NestedDefinition_NestedEnum_value)
-	proto.RegisterExtension(E_FieldA)
-	proto.RegisterExtension(E_FieldB)
 }

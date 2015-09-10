@@ -17,11 +17,6 @@ It has these top-level messages:
 	NinRepStruct
 	NinNestedStruct
 	Nil
-	NinOptEnum
-	NinRepEnum
-	NinOptEnumDefault
-	MyExtendable
-	OtherExtenable
 	NestedDefinition
 	NestedScope
 	NinOptNativeDefault
@@ -32,8 +27,6 @@ It has these top-level messages:
 	NinRepStruct3
 	NinNestedStruct3
 	Nil3
-	NinOptEnum3
-	NinRepEnum3
 	NestedDefinition3
 	NestedScope3
 */
@@ -43,78 +36,10 @@ import proto "github.com/gogo/protobuf/proto"
 import fmt "fmt"
 import math "math"
 
-import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
-
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-type TheTestEnum int32
-
-const (
-	TheTestEnum_A TheTestEnum = 0
-	TheTestEnum_B TheTestEnum = 1
-	TheTestEnum_C TheTestEnum = 2
-)
-
-var TheTestEnum_name = map[int32]string{
-	0: "A",
-	1: "B",
-	2: "C",
-}
-var TheTestEnum_value = map[string]int32{
-	"A": 0,
-	"B": 1,
-	"C": 2,
-}
-
-func (x TheTestEnum) Enum() *TheTestEnum {
-	p := new(TheTestEnum)
-	*p = x
-	return p
-}
-func (x TheTestEnum) String() string {
-	return proto.EnumName(TheTestEnum_name, int32(x))
-}
-func (x *TheTestEnum) UnmarshalJSON(data []byte) error {
-	value, err := proto.UnmarshalJSONEnum(TheTestEnum_value, data, "TheTestEnum")
-	if err != nil {
-		return err
-	}
-	*x = TheTestEnum(value)
-	return nil
-}
-
-type NestedDefinition_NestedEnum int32
-
-const (
-	NestedDefinition_TYPE_NESTED NestedDefinition_NestedEnum = 1
-)
-
-var NestedDefinition_NestedEnum_name = map[int32]string{
-	1: "TYPE_NESTED",
-}
-var NestedDefinition_NestedEnum_value = map[string]int32{
-	"TYPE_NESTED": 1,
-}
-
-func (x NestedDefinition_NestedEnum) Enum() *NestedDefinition_NestedEnum {
-	p := new(NestedDefinition_NestedEnum)
-	*p = x
-	return p
-}
-func (x NestedDefinition_NestedEnum) String() string {
-	return proto.EnumName(NestedDefinition_NestedEnum_name, int32(x))
-}
-func (x *NestedDefinition_NestedEnum) UnmarshalJSON(data []byte) error {
-	value, err := proto.UnmarshalJSONEnum(NestedDefinition_NestedEnum_value, data, "NestedDefinition_NestedEnum")
-	if err != nil {
-		return err
-	}
-	*x = NestedDefinition_NestedEnum(value)
-	return nil
-}
 
 type NinOptNative struct {
 	Field1           *float64 `protobuf:"fixed64,1,opt,name=Field1" json:"Field1,omitempty"`
@@ -692,138 +617,8 @@ func (m *Nil) Reset()         { *m = Nil{} }
 func (m *Nil) String() string { return proto.CompactTextString(m) }
 func (*Nil) ProtoMessage()    {}
 
-type NinOptEnum struct {
-	Field1           *TheTestEnum `protobuf:"varint,1,opt,name=Field1,enum=fuzztests.TheTestEnum" json:"Field1,omitempty"`
-	XXX_unrecognized []byte       `json:"-"`
-}
-
-func (m *NinOptEnum) Reset()         { *m = NinOptEnum{} }
-func (m *NinOptEnum) String() string { return proto.CompactTextString(m) }
-func (*NinOptEnum) ProtoMessage()    {}
-
-func (m *NinOptEnum) GetField1() TheTestEnum {
-	if m != nil && m.Field1 != nil {
-		return *m.Field1
-	}
-	return TheTestEnum_A
-}
-
-type NinRepEnum struct {
-	Field1           []TheTestEnum `protobuf:"varint,1,rep,name=Field1,enum=fuzztests.TheTestEnum" json:"Field1,omitempty"`
-	XXX_unrecognized []byte        `json:"-"`
-}
-
-func (m *NinRepEnum) Reset()         { *m = NinRepEnum{} }
-func (m *NinRepEnum) String() string { return proto.CompactTextString(m) }
-func (*NinRepEnum) ProtoMessage()    {}
-
-func (m *NinRepEnum) GetField1() []TheTestEnum {
-	if m != nil {
-		return m.Field1
-	}
-	return nil
-}
-
-type NinOptEnumDefault struct {
-	Field1           *TheTestEnum `protobuf:"varint,1,opt,name=Field1,enum=fuzztests.TheTestEnum,def=2" json:"Field1,omitempty"`
-	XXX_unrecognized []byte       `json:"-"`
-}
-
-func (m *NinOptEnumDefault) Reset()         { *m = NinOptEnumDefault{} }
-func (m *NinOptEnumDefault) String() string { return proto.CompactTextString(m) }
-func (*NinOptEnumDefault) ProtoMessage()    {}
-
-const Default_NinOptEnumDefault_Field1 TheTestEnum = TheTestEnum_C
-
-func (m *NinOptEnumDefault) GetField1() TheTestEnum {
-	if m != nil && m.Field1 != nil {
-		return *m.Field1
-	}
-	return Default_NinOptEnumDefault_Field1
-}
-
-type MyExtendable struct {
-	Field1           *int64                    `protobuf:"varint,1,opt,name=Field1" json:"Field1,omitempty"`
-	XXX_extensions   map[int32]proto.Extension `json:"-"`
-	XXX_unrecognized []byte                    `json:"-"`
-}
-
-func (m *MyExtendable) Reset()         { *m = MyExtendable{} }
-func (m *MyExtendable) String() string { return proto.CompactTextString(m) }
-func (*MyExtendable) ProtoMessage()    {}
-
-var extRange_MyExtendable = []proto.ExtensionRange{
-	{100, 199},
-}
-
-func (*MyExtendable) ExtensionRangeArray() []proto.ExtensionRange {
-	return extRange_MyExtendable
-}
-func (m *MyExtendable) ExtensionMap() map[int32]proto.Extension {
-	if m.XXX_extensions == nil {
-		m.XXX_extensions = make(map[int32]proto.Extension)
-	}
-	return m.XXX_extensions
-}
-
-func (m *MyExtendable) GetField1() int64 {
-	if m != nil && m.Field1 != nil {
-		return *m.Field1
-	}
-	return 0
-}
-
-type OtherExtenable struct {
-	Field2           *int64                    `protobuf:"varint,2,opt,name=Field2" json:"Field2,omitempty"`
-	Field13          *int64                    `protobuf:"varint,13,opt,name=Field13" json:"Field13,omitempty"`
-	M                *MyExtendable             `protobuf:"bytes,1,opt,name=M" json:"M,omitempty"`
-	XXX_extensions   map[int32]proto.Extension `json:"-"`
-	XXX_unrecognized []byte                    `json:"-"`
-}
-
-func (m *OtherExtenable) Reset()         { *m = OtherExtenable{} }
-func (m *OtherExtenable) String() string { return proto.CompactTextString(m) }
-func (*OtherExtenable) ProtoMessage()    {}
-
-var extRange_OtherExtenable = []proto.ExtensionRange{
-	{14, 16},
-	{10, 12},
-}
-
-func (*OtherExtenable) ExtensionRangeArray() []proto.ExtensionRange {
-	return extRange_OtherExtenable
-}
-func (m *OtherExtenable) ExtensionMap() map[int32]proto.Extension {
-	if m.XXX_extensions == nil {
-		m.XXX_extensions = make(map[int32]proto.Extension)
-	}
-	return m.XXX_extensions
-}
-
-func (m *OtherExtenable) GetField2() int64 {
-	if m != nil && m.Field2 != nil {
-		return *m.Field2
-	}
-	return 0
-}
-
-func (m *OtherExtenable) GetField13() int64 {
-	if m != nil && m.Field13 != nil {
-		return *m.Field13
-	}
-	return 0
-}
-
-func (m *OtherExtenable) GetM() *MyExtendable {
-	if m != nil {
-		return m.M
-	}
-	return nil
-}
-
 type NestedDefinition struct {
 	Field1           *int64                                          `protobuf:"varint,1,opt,name=Field1" json:"Field1,omitempty"`
-	EnumField        *NestedDefinition_NestedEnum                    `protobuf:"varint,2,opt,name=EnumField,enum=fuzztests.NestedDefinition_NestedEnum" json:"EnumField,omitempty"`
 	NNM              *NestedDefinition_NestedMessage_NestedNestedMsg `protobuf:"bytes,3,opt,name=NNM" json:"NNM,omitempty"`
 	NM               *NestedDefinition_NestedMessage                 `protobuf:"bytes,4,opt,name=NM" json:"NM,omitempty"`
 	XXX_unrecognized []byte                                          `json:"-"`
@@ -838,13 +633,6 @@ func (m *NestedDefinition) GetField1() int64 {
 		return *m.Field1
 	}
 	return 0
-}
-
-func (m *NestedDefinition) GetEnumField() NestedDefinition_NestedEnum {
-	if m != nil && m.EnumField != nil {
-		return *m.EnumField
-	}
-	return NestedDefinition_TYPE_NESTED
 }
 
 func (m *NestedDefinition) GetNNM() *NestedDefinition_NestedMessage_NestedNestedMsg {
@@ -907,7 +695,6 @@ func (m *NestedDefinition_NestedMessage_NestedNestedMsg) GetNestedNestedField1()
 
 type NestedScope struct {
 	A                *NestedDefinition_NestedMessage_NestedNestedMsg `protobuf:"bytes,1,opt,name=A" json:"A,omitempty"`
-	B                *NestedDefinition_NestedEnum                    `protobuf:"varint,2,opt,name=B,enum=fuzztests.NestedDefinition_NestedEnum" json:"B,omitempty"`
 	C                *NestedDefinition_NestedMessage                 `protobuf:"bytes,3,opt,name=C" json:"C,omitempty"`
 	XXX_unrecognized []byte                                          `json:"-"`
 }
@@ -921,13 +708,6 @@ func (m *NestedScope) GetA() *NestedDefinition_NestedMessage_NestedNestedMsg {
 		return m.A
 	}
 	return nil
-}
-
-func (m *NestedScope) GetB() NestedDefinition_NestedEnum {
-	if m != nil && m.B != nil {
-		return *m.B
-	}
-	return NestedDefinition_TYPE_NESTED
 }
 
 func (m *NestedScope) GetC() *NestedDefinition_NestedMessage {
@@ -1080,28 +860,6 @@ func (m *NinOptNativeDefault) GetField15() []byte {
 	return nil
 }
 
-var E_FieldA = &proto.ExtensionDesc{
-	ExtendedType:  (*MyExtendable)(nil),
-	ExtensionType: (*float64)(nil),
-	Field:         100,
-	Name:          "fuzztests.FieldA",
-	Tag:           "fixed64,100,opt,name=FieldA",
-}
-
-var E_FieldB = &proto.ExtensionDesc{
-	ExtendedType:  (*MyExtendable)(nil),
-	ExtensionType: (*NinOptNative)(nil),
-	Field:         101,
-	Name:          "fuzztests.FieldB",
-	Tag:           "bytes,101,opt,name=FieldB",
-}
-
-func init() {
-	proto.RegisterEnum("fuzztests.TheTestEnum", TheTestEnum_name, TheTestEnum_value)
-	proto.RegisterEnum("fuzztests.NestedDefinition_NestedEnum", NestedDefinition_NestedEnum_name, NestedDefinition_NestedEnum_value)
-	proto.RegisterExtension(E_FieldA)
-	proto.RegisterExtension(E_FieldB)
-}
 func NewPopulatedNinOptNative(r randyFuzz2, easy bool) *NinOptNative {
 	this := &NinOptNative{}
 	if r.Intn(10) != 0 {
@@ -1635,128 +1393,14 @@ func NewPopulatedNil(r randyFuzz2, easy bool) *Nil {
 	return this
 }
 
-func NewPopulatedNinOptEnum(r randyFuzz2, easy bool) *NinOptEnum {
-	this := &NinOptEnum{}
-	if r.Intn(10) != 0 {
-		v64 := TheTestEnum([]int32{0, 1, 2}[r.Intn(3)])
-		this.Field1 = &v64
-	}
-	if !easy && r.Intn(10) != 0 {
-		this.XXX_unrecognized = randUnrecognizedFuzz2(r, 2)
-	}
-	return this
-}
-
-func NewPopulatedNinRepEnum(r randyFuzz2, easy bool) *NinRepEnum {
-	this := &NinRepEnum{}
-	if r.Intn(10) != 0 {
-		v65 := r.Intn(10)
-		this.Field1 = make([]TheTestEnum, v65)
-		for i := 0; i < v65; i++ {
-			this.Field1[i] = TheTestEnum([]int32{0, 1, 2}[r.Intn(3)])
-		}
-	}
-	if !easy && r.Intn(10) != 0 {
-		this.XXX_unrecognized = randUnrecognizedFuzz2(r, 2)
-	}
-	return this
-}
-
-func NewPopulatedNinOptEnumDefault(r randyFuzz2, easy bool) *NinOptEnumDefault {
-	this := &NinOptEnumDefault{}
-	if r.Intn(10) != 0 {
-		v66 := TheTestEnum([]int32{0, 1, 2}[r.Intn(3)])
-		this.Field1 = &v66
-	}
-	if !easy && r.Intn(10) != 0 {
-		this.XXX_unrecognized = randUnrecognizedFuzz2(r, 2)
-	}
-	return this
-}
-
-func NewPopulatedMyExtendable(r randyFuzz2, easy bool) *MyExtendable {
-	this := &MyExtendable{}
-	if r.Intn(10) != 0 {
-		v67 := int64(r.Int63())
-		if r.Intn(2) == 0 {
-			v67 *= -1
-		}
-		this.Field1 = &v67
-	}
-	if !easy && r.Intn(10) != 0 {
-		l := r.Intn(5)
-		for i := 0; i < l; i++ {
-			fieldNumber := r.Intn(100) + 100
-			wire := r.Intn(4)
-			if wire == 3 {
-				wire = 5
-			}
-			data := randFieldFuzz2(nil, r, fieldNumber, wire)
-			github_com_gogo_protobuf_proto.SetRawExtension(this, int32(fieldNumber), data)
-		}
-	}
-	if !easy && r.Intn(10) != 0 {
-		this.XXX_unrecognized = randUnrecognizedFuzz2(r, 201)
-	}
-	return this
-}
-
-func NewPopulatedOtherExtenable(r randyFuzz2, easy bool) *OtherExtenable {
-	this := &OtherExtenable{}
-	if r.Intn(10) != 0 {
-		v68 := int64(r.Int63())
-		if r.Intn(2) == 0 {
-			v68 *= -1
-		}
-		this.Field2 = &v68
-	}
-	if r.Intn(10) != 0 {
-		v69 := int64(r.Int63())
-		if r.Intn(2) == 0 {
-			v69 *= -1
-		}
-		this.Field13 = &v69
-	}
-	if r.Intn(10) != 0 {
-		this.M = NewPopulatedMyExtendable(r, easy)
-	}
-	if !easy && r.Intn(10) != 0 {
-		l := r.Intn(5)
-		for i := 0; i < l; i++ {
-			eIndex := r.Intn(2)
-			fieldNumber := 0
-			switch eIndex {
-			case 0:
-				fieldNumber = r.Intn(3) + 14
-			case 1:
-				fieldNumber = r.Intn(3) + 10
-			}
-			wire := r.Intn(4)
-			if wire == 3 {
-				wire = 5
-			}
-			data := randFieldFuzz2(nil, r, fieldNumber, wire)
-			github_com_gogo_protobuf_proto.SetRawExtension(this, int32(fieldNumber), data)
-		}
-	}
-	if !easy && r.Intn(10) != 0 {
-		this.XXX_unrecognized = randUnrecognizedFuzz2(r, 18)
-	}
-	return this
-}
-
 func NewPopulatedNestedDefinition(r randyFuzz2, easy bool) *NestedDefinition {
 	this := &NestedDefinition{}
 	if r.Intn(10) != 0 {
-		v70 := int64(r.Int63())
+		v64 := int64(r.Int63())
 		if r.Intn(2) == 0 {
-			v70 *= -1
+			v64 *= -1
 		}
-		this.Field1 = &v70
-	}
-	if r.Intn(10) != 0 {
-		v71 := NestedDefinition_NestedEnum([]int32{1}[r.Intn(1)])
-		this.EnumField = &v71
+		this.Field1 = &v64
 	}
 	if r.Intn(10) != 0 {
 		this.NNM = NewPopulatedNestedDefinition_NestedMessage_NestedNestedMsg(r, easy)
@@ -1773,8 +1417,8 @@ func NewPopulatedNestedDefinition(r randyFuzz2, easy bool) *NestedDefinition {
 func NewPopulatedNestedDefinition_NestedMessage(r randyFuzz2, easy bool) *NestedDefinition_NestedMessage {
 	this := &NestedDefinition_NestedMessage{}
 	if r.Intn(10) != 0 {
-		v72 := uint64(uint64(r.Uint32()))
-		this.NestedField1 = &v72
+		v65 := uint64(uint64(r.Uint32()))
+		this.NestedField1 = &v65
 	}
 	if r.Intn(10) != 0 {
 		this.NNM = NewPopulatedNestedDefinition_NestedMessage_NestedNestedMsg(r, easy)
@@ -1788,8 +1432,8 @@ func NewPopulatedNestedDefinition_NestedMessage(r randyFuzz2, easy bool) *Nested
 func NewPopulatedNestedDefinition_NestedMessage_NestedNestedMsg(r randyFuzz2, easy bool) *NestedDefinition_NestedMessage_NestedNestedMsg {
 	this := &NestedDefinition_NestedMessage_NestedNestedMsg{}
 	if r.Intn(10) != 0 {
-		v73 := randStringFuzz2(r)
-		this.NestedNestedField1 = &v73
+		v66 := randStringFuzz2(r)
+		this.NestedNestedField1 = &v66
 	}
 	if !easy && r.Intn(10) != 0 {
 		this.XXX_unrecognized = randUnrecognizedFuzz2(r, 11)
@@ -1803,10 +1447,6 @@ func NewPopulatedNestedScope(r randyFuzz2, easy bool) *NestedScope {
 		this.A = NewPopulatedNestedDefinition_NestedMessage_NestedNestedMsg(r, easy)
 	}
 	if r.Intn(10) != 0 {
-		v74 := NestedDefinition_NestedEnum([]int32{1}[r.Intn(1)])
-		this.B = &v74
-	}
-	if r.Intn(10) != 0 {
 		this.C = NewPopulatedNestedDefinition_NestedMessage(r, easy)
 	}
 	if !easy && r.Intn(10) != 0 {
@@ -1818,89 +1458,89 @@ func NewPopulatedNestedScope(r randyFuzz2, easy bool) *NestedScope {
 func NewPopulatedNinOptNativeDefault(r randyFuzz2, easy bool) *NinOptNativeDefault {
 	this := &NinOptNativeDefault{}
 	if r.Intn(10) != 0 {
-		v75 := float64(r.Float64())
+		v67 := float64(r.Float64())
 		if r.Intn(2) == 0 {
-			v75 *= -1
+			v67 *= -1
 		}
-		this.Field1 = &v75
+		this.Field1 = &v67
 	}
 	if r.Intn(10) != 0 {
-		v76 := float32(r.Float32())
+		v68 := float32(r.Float32())
+		if r.Intn(2) == 0 {
+			v68 *= -1
+		}
+		this.Field2 = &v68
+	}
+	if r.Intn(10) != 0 {
+		v69 := int32(r.Int31())
+		if r.Intn(2) == 0 {
+			v69 *= -1
+		}
+		this.Field3 = &v69
+	}
+	if r.Intn(10) != 0 {
+		v70 := int64(r.Int63())
+		if r.Intn(2) == 0 {
+			v70 *= -1
+		}
+		this.Field4 = &v70
+	}
+	if r.Intn(10) != 0 {
+		v71 := uint32(r.Uint32())
+		this.Field5 = &v71
+	}
+	if r.Intn(10) != 0 {
+		v72 := uint64(uint64(r.Uint32()))
+		this.Field6 = &v72
+	}
+	if r.Intn(10) != 0 {
+		v73 := int32(r.Int31())
+		if r.Intn(2) == 0 {
+			v73 *= -1
+		}
+		this.Field7 = &v73
+	}
+	if r.Intn(10) != 0 {
+		v74 := int64(r.Int63())
+		if r.Intn(2) == 0 {
+			v74 *= -1
+		}
+		this.Field8 = &v74
+	}
+	if r.Intn(10) != 0 {
+		v75 := uint32(r.Uint32())
+		this.Field9 = &v75
+	}
+	if r.Intn(10) != 0 {
+		v76 := int32(r.Int31())
 		if r.Intn(2) == 0 {
 			v76 *= -1
 		}
-		this.Field2 = &v76
+		this.Field10 = &v76
 	}
 	if r.Intn(10) != 0 {
-		v77 := int32(r.Int31())
-		if r.Intn(2) == 0 {
-			v77 *= -1
-		}
-		this.Field3 = &v77
+		v77 := uint64(uint64(r.Uint32()))
+		this.Field11 = &v77
 	}
 	if r.Intn(10) != 0 {
 		v78 := int64(r.Int63())
 		if r.Intn(2) == 0 {
 			v78 *= -1
 		}
-		this.Field4 = &v78
+		this.Field12 = &v78
 	}
 	if r.Intn(10) != 0 {
-		v79 := uint32(r.Uint32())
-		this.Field5 = &v79
+		v79 := bool(bool(r.Intn(2) == 0))
+		this.Field13 = &v79
 	}
 	if r.Intn(10) != 0 {
-		v80 := uint64(uint64(r.Uint32()))
-		this.Field6 = &v80
+		v80 := randStringFuzz2(r)
+		this.Field14 = &v80
 	}
 	if r.Intn(10) != 0 {
-		v81 := int32(r.Int31())
-		if r.Intn(2) == 0 {
-			v81 *= -1
-		}
-		this.Field7 = &v81
-	}
-	if r.Intn(10) != 0 {
-		v82 := int64(r.Int63())
-		if r.Intn(2) == 0 {
-			v82 *= -1
-		}
-		this.Field8 = &v82
-	}
-	if r.Intn(10) != 0 {
-		v83 := uint32(r.Uint32())
-		this.Field9 = &v83
-	}
-	if r.Intn(10) != 0 {
-		v84 := int32(r.Int31())
-		if r.Intn(2) == 0 {
-			v84 *= -1
-		}
-		this.Field10 = &v84
-	}
-	if r.Intn(10) != 0 {
-		v85 := uint64(uint64(r.Uint32()))
-		this.Field11 = &v85
-	}
-	if r.Intn(10) != 0 {
-		v86 := int64(r.Int63())
-		if r.Intn(2) == 0 {
-			v86 *= -1
-		}
-		this.Field12 = &v86
-	}
-	if r.Intn(10) != 0 {
-		v87 := bool(bool(r.Intn(2) == 0))
-		this.Field13 = &v87
-	}
-	if r.Intn(10) != 0 {
-		v88 := randStringFuzz2(r)
-		this.Field14 = &v88
-	}
-	if r.Intn(10) != 0 {
-		v89 := r.Intn(100)
-		this.Field15 = make([]byte, v89)
-		for i := 0; i < v89; i++ {
+		v81 := r.Intn(100)
+		this.Field15 = make([]byte, v81)
+		for i := 0; i < v81; i++ {
 			this.Field15[i] = byte(r.Intn(256))
 		}
 	}
@@ -1929,9 +1569,9 @@ func randUTF8RuneFuzz2(r randyFuzz2) rune {
 	return rune(ru + 61)
 }
 func randStringFuzz2(r randyFuzz2) string {
-	v90 := r.Intn(100)
-	tmps := make([]rune, v90)
-	for i := 0; i < v90; i++ {
+	v82 := r.Intn(100)
+	tmps := make([]rune, v82)
+	for i := 0; i < v82; i++ {
 		tmps[i] = randUTF8RuneFuzz2(r)
 	}
 	return string(tmps)
@@ -1953,11 +1593,11 @@ func randFieldFuzz2(data []byte, r randyFuzz2, fieldNumber int, wire int) []byte
 	switch wire {
 	case 0:
 		data = encodeVarintPopulateFuzz2(data, uint64(key))
-		v91 := r.Int63()
+		v83 := r.Int63()
 		if r.Intn(2) == 0 {
-			v91 *= -1
+			v83 *= -1
 		}
-		data = encodeVarintPopulateFuzz2(data, uint64(v91))
+		data = encodeVarintPopulateFuzz2(data, uint64(v83))
 	case 1:
 		data = encodeVarintPopulateFuzz2(data, uint64(key))
 		data = append(data, byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)))

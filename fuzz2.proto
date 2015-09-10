@@ -1,5 +1,5 @@
-// Copyright (c) 2013, Vastech SA (PTY) LTD. All rights reserved.
-// http://github.com/gogo/protobuf/gogoproto
+// Copyright (c) 2015, Vastech SA (PTY) LTD. All rights reserved.
+// http://github.com/gogo/fuzztests
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -115,42 +115,6 @@ message Nil {
 
 }
 
-enum TheTestEnum {
-    A = 0;
-    B = 1;
-    C = 2;
-}
-
-message NinOptEnum {
-  optional TheTestEnum Field1 = 1;
-}
-
-message NinRepEnum {
-  repeated TheTestEnum Field1 = 1;
-}
-
-message NinOptEnumDefault {
-  optional TheTestEnum Field1 = 1  [default=C];
-}
-
-message MyExtendable {
-  optional int64 Field1 = 1;
-  extensions 100 to 199;
-}
-
-extend MyExtendable {
-  optional double FieldA = 100;
-  optional NinOptNative FieldB = 101;
-}
-
-message OtherExtenable {
-  optional int64 Field2 = 2;
-  extensions 14 to 16;
-  optional int64 Field13 = 13;
-  extensions 10 to 12;
-  optional MyExtendable M = 1;
-}
-
 message NestedDefinition {
   optional int64 Field1 = 1;
   message NestedMessage {
@@ -160,17 +124,12 @@ message NestedDefinition {
       optional string NestedNestedField1 = 10;
     }
   }
-  enum NestedEnum {
-    TYPE_NESTED = 1;
-  }
-  optional NestedEnum EnumField = 2;
   optional NestedMessage.NestedNestedMsg NNM = 3;
   optional NestedMessage NM = 4;
 }
 
 message NestedScope {
   optional NestedDefinition.NestedMessage.NestedNestedMsg A = 1;
-  optional NestedDefinition.NestedEnum B = 2;
   optional NestedDefinition.NestedMessage C = 3;
 }
 

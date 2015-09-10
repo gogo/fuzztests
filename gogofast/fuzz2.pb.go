@@ -17,11 +17,6 @@
 		NinRepStruct
 		NinNestedStruct
 		Nil
-		NinOptEnum
-		NinRepEnum
-		NinOptEnumDefault
-		MyExtendable
-		OtherExtenable
 		NestedDefinition
 		NestedScope
 		NinOptNativeDefault
@@ -32,8 +27,6 @@
 		NinRepStruct3
 		NinNestedStruct3
 		Nil3
-		NinOptEnum3
-		NinRepEnum3
 		NestedDefinition3
 		NestedScope3
 */
@@ -43,80 +36,12 @@ import proto "github.com/gogo/protobuf/proto"
 import fmt "fmt"
 import math "math"
 
-import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
-
 import io "io"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-type TheTestEnum int32
-
-const (
-	TheTestEnum_A TheTestEnum = 0
-	TheTestEnum_B TheTestEnum = 1
-	TheTestEnum_C TheTestEnum = 2
-)
-
-var TheTestEnum_name = map[int32]string{
-	0: "A",
-	1: "B",
-	2: "C",
-}
-var TheTestEnum_value = map[string]int32{
-	"A": 0,
-	"B": 1,
-	"C": 2,
-}
-
-func (x TheTestEnum) Enum() *TheTestEnum {
-	p := new(TheTestEnum)
-	*p = x
-	return p
-}
-func (x TheTestEnum) String() string {
-	return proto.EnumName(TheTestEnum_name, int32(x))
-}
-func (x *TheTestEnum) UnmarshalJSON(data []byte) error {
-	value, err := proto.UnmarshalJSONEnum(TheTestEnum_value, data, "TheTestEnum")
-	if err != nil {
-		return err
-	}
-	*x = TheTestEnum(value)
-	return nil
-}
-
-type NestedDefinition_NestedEnum int32
-
-const (
-	NestedDefinition_TYPE_NESTED NestedDefinition_NestedEnum = 1
-)
-
-var NestedDefinition_NestedEnum_name = map[int32]string{
-	1: "TYPE_NESTED",
-}
-var NestedDefinition_NestedEnum_value = map[string]int32{
-	"TYPE_NESTED": 1,
-}
-
-func (x NestedDefinition_NestedEnum) Enum() *NestedDefinition_NestedEnum {
-	p := new(NestedDefinition_NestedEnum)
-	*p = x
-	return p
-}
-func (x NestedDefinition_NestedEnum) String() string {
-	return proto.EnumName(NestedDefinition_NestedEnum_name, int32(x))
-}
-func (x *NestedDefinition_NestedEnum) UnmarshalJSON(data []byte) error {
-	value, err := proto.UnmarshalJSONEnum(NestedDefinition_NestedEnum_value, data, "NestedDefinition_NestedEnum")
-	if err != nil {
-		return err
-	}
-	*x = NestedDefinition_NestedEnum(value)
-	return nil
-}
 
 type NinOptNative struct {
 	Field1           *float64 `protobuf:"fixed64,1,opt,name=Field1" json:"Field1,omitempty"`
@@ -694,138 +619,8 @@ func (m *Nil) Reset()         { *m = Nil{} }
 func (m *Nil) String() string { return proto.CompactTextString(m) }
 func (*Nil) ProtoMessage()    {}
 
-type NinOptEnum struct {
-	Field1           *TheTestEnum `protobuf:"varint,1,opt,name=Field1,enum=fuzztests.TheTestEnum" json:"Field1,omitempty"`
-	XXX_unrecognized []byte       `json:"-"`
-}
-
-func (m *NinOptEnum) Reset()         { *m = NinOptEnum{} }
-func (m *NinOptEnum) String() string { return proto.CompactTextString(m) }
-func (*NinOptEnum) ProtoMessage()    {}
-
-func (m *NinOptEnum) GetField1() TheTestEnum {
-	if m != nil && m.Field1 != nil {
-		return *m.Field1
-	}
-	return TheTestEnum_A
-}
-
-type NinRepEnum struct {
-	Field1           []TheTestEnum `protobuf:"varint,1,rep,name=Field1,enum=fuzztests.TheTestEnum" json:"Field1,omitempty"`
-	XXX_unrecognized []byte        `json:"-"`
-}
-
-func (m *NinRepEnum) Reset()         { *m = NinRepEnum{} }
-func (m *NinRepEnum) String() string { return proto.CompactTextString(m) }
-func (*NinRepEnum) ProtoMessage()    {}
-
-func (m *NinRepEnum) GetField1() []TheTestEnum {
-	if m != nil {
-		return m.Field1
-	}
-	return nil
-}
-
-type NinOptEnumDefault struct {
-	Field1           *TheTestEnum `protobuf:"varint,1,opt,name=Field1,enum=fuzztests.TheTestEnum,def=2" json:"Field1,omitempty"`
-	XXX_unrecognized []byte       `json:"-"`
-}
-
-func (m *NinOptEnumDefault) Reset()         { *m = NinOptEnumDefault{} }
-func (m *NinOptEnumDefault) String() string { return proto.CompactTextString(m) }
-func (*NinOptEnumDefault) ProtoMessage()    {}
-
-const Default_NinOptEnumDefault_Field1 TheTestEnum = TheTestEnum_C
-
-func (m *NinOptEnumDefault) GetField1() TheTestEnum {
-	if m != nil && m.Field1 != nil {
-		return *m.Field1
-	}
-	return Default_NinOptEnumDefault_Field1
-}
-
-type MyExtendable struct {
-	Field1           *int64                    `protobuf:"varint,1,opt,name=Field1" json:"Field1,omitempty"`
-	XXX_extensions   map[int32]proto.Extension `json:"-"`
-	XXX_unrecognized []byte                    `json:"-"`
-}
-
-func (m *MyExtendable) Reset()         { *m = MyExtendable{} }
-func (m *MyExtendable) String() string { return proto.CompactTextString(m) }
-func (*MyExtendable) ProtoMessage()    {}
-
-var extRange_MyExtendable = []proto.ExtensionRange{
-	{100, 199},
-}
-
-func (*MyExtendable) ExtensionRangeArray() []proto.ExtensionRange {
-	return extRange_MyExtendable
-}
-func (m *MyExtendable) ExtensionMap() map[int32]proto.Extension {
-	if m.XXX_extensions == nil {
-		m.XXX_extensions = make(map[int32]proto.Extension)
-	}
-	return m.XXX_extensions
-}
-
-func (m *MyExtendable) GetField1() int64 {
-	if m != nil && m.Field1 != nil {
-		return *m.Field1
-	}
-	return 0
-}
-
-type OtherExtenable struct {
-	Field2           *int64                    `protobuf:"varint,2,opt,name=Field2" json:"Field2,omitempty"`
-	Field13          *int64                    `protobuf:"varint,13,opt,name=Field13" json:"Field13,omitempty"`
-	M                *MyExtendable             `protobuf:"bytes,1,opt,name=M" json:"M,omitempty"`
-	XXX_extensions   map[int32]proto.Extension `json:"-"`
-	XXX_unrecognized []byte                    `json:"-"`
-}
-
-func (m *OtherExtenable) Reset()         { *m = OtherExtenable{} }
-func (m *OtherExtenable) String() string { return proto.CompactTextString(m) }
-func (*OtherExtenable) ProtoMessage()    {}
-
-var extRange_OtherExtenable = []proto.ExtensionRange{
-	{14, 16},
-	{10, 12},
-}
-
-func (*OtherExtenable) ExtensionRangeArray() []proto.ExtensionRange {
-	return extRange_OtherExtenable
-}
-func (m *OtherExtenable) ExtensionMap() map[int32]proto.Extension {
-	if m.XXX_extensions == nil {
-		m.XXX_extensions = make(map[int32]proto.Extension)
-	}
-	return m.XXX_extensions
-}
-
-func (m *OtherExtenable) GetField2() int64 {
-	if m != nil && m.Field2 != nil {
-		return *m.Field2
-	}
-	return 0
-}
-
-func (m *OtherExtenable) GetField13() int64 {
-	if m != nil && m.Field13 != nil {
-		return *m.Field13
-	}
-	return 0
-}
-
-func (m *OtherExtenable) GetM() *MyExtendable {
-	if m != nil {
-		return m.M
-	}
-	return nil
-}
-
 type NestedDefinition struct {
 	Field1           *int64                                          `protobuf:"varint,1,opt,name=Field1" json:"Field1,omitempty"`
-	EnumField        *NestedDefinition_NestedEnum                    `protobuf:"varint,2,opt,name=EnumField,enum=fuzztests.NestedDefinition_NestedEnum" json:"EnumField,omitempty"`
 	NNM              *NestedDefinition_NestedMessage_NestedNestedMsg `protobuf:"bytes,3,opt,name=NNM" json:"NNM,omitempty"`
 	NM               *NestedDefinition_NestedMessage                 `protobuf:"bytes,4,opt,name=NM" json:"NM,omitempty"`
 	XXX_unrecognized []byte                                          `json:"-"`
@@ -840,13 +635,6 @@ func (m *NestedDefinition) GetField1() int64 {
 		return *m.Field1
 	}
 	return 0
-}
-
-func (m *NestedDefinition) GetEnumField() NestedDefinition_NestedEnum {
-	if m != nil && m.EnumField != nil {
-		return *m.EnumField
-	}
-	return NestedDefinition_TYPE_NESTED
 }
 
 func (m *NestedDefinition) GetNNM() *NestedDefinition_NestedMessage_NestedNestedMsg {
@@ -909,7 +697,6 @@ func (m *NestedDefinition_NestedMessage_NestedNestedMsg) GetNestedNestedField1()
 
 type NestedScope struct {
 	A                *NestedDefinition_NestedMessage_NestedNestedMsg `protobuf:"bytes,1,opt,name=A" json:"A,omitempty"`
-	B                *NestedDefinition_NestedEnum                    `protobuf:"varint,2,opt,name=B,enum=fuzztests.NestedDefinition_NestedEnum" json:"B,omitempty"`
 	C                *NestedDefinition_NestedMessage                 `protobuf:"bytes,3,opt,name=C" json:"C,omitempty"`
 	XXX_unrecognized []byte                                          `json:"-"`
 }
@@ -923,13 +710,6 @@ func (m *NestedScope) GetA() *NestedDefinition_NestedMessage_NestedNestedMsg {
 		return m.A
 	}
 	return nil
-}
-
-func (m *NestedScope) GetB() NestedDefinition_NestedEnum {
-	if m != nil && m.B != nil {
-		return *m.B
-	}
-	return NestedDefinition_TYPE_NESTED
 }
 
 func (m *NestedScope) GetC() *NestedDefinition_NestedMessage {
@@ -1082,28 +862,6 @@ func (m *NinOptNativeDefault) GetField15() []byte {
 	return nil
 }
 
-var E_FieldA = &proto.ExtensionDesc{
-	ExtendedType:  (*MyExtendable)(nil),
-	ExtensionType: (*float64)(nil),
-	Field:         100,
-	Name:          "fuzztests.FieldA",
-	Tag:           "fixed64,100,opt,name=FieldA",
-}
-
-var E_FieldB = &proto.ExtensionDesc{
-	ExtendedType:  (*MyExtendable)(nil),
-	ExtensionType: (*NinOptNative)(nil),
-	Field:         101,
-	Name:          "fuzztests.FieldB",
-	Tag:           "bytes,101,opt,name=FieldB",
-}
-
-func init() {
-	proto.RegisterEnum("fuzztests.TheTestEnum", TheTestEnum_name, TheTestEnum_value)
-	proto.RegisterEnum("fuzztests.NestedDefinition_NestedEnum", NestedDefinition_NestedEnum_name, NestedDefinition_NestedEnum_value)
-	proto.RegisterExtension(E_FieldA)
-	proto.RegisterExtension(E_FieldB)
-}
 func (m *NinOptNative) Marshal() (data []byte, err error) {
 	size := m.Size()
 	data = make([]byte, size)
@@ -1993,167 +1751,6 @@ func (m *Nil) MarshalTo(data []byte) (int, error) {
 	return i, nil
 }
 
-func (m *NinOptEnum) Marshal() (data []byte, err error) {
-	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
-	if err != nil {
-		return nil, err
-	}
-	return data[:n], nil
-}
-
-func (m *NinOptEnum) MarshalTo(data []byte) (int, error) {
-	var i int
-	_ = i
-	var l int
-	_ = l
-	if m.Field1 != nil {
-		data[i] = 0x8
-		i++
-		i = encodeVarintFuzz2(data, i, uint64(*m.Field1))
-	}
-	if m.XXX_unrecognized != nil {
-		i += copy(data[i:], m.XXX_unrecognized)
-	}
-	return i, nil
-}
-
-func (m *NinRepEnum) Marshal() (data []byte, err error) {
-	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
-	if err != nil {
-		return nil, err
-	}
-	return data[:n], nil
-}
-
-func (m *NinRepEnum) MarshalTo(data []byte) (int, error) {
-	var i int
-	_ = i
-	var l int
-	_ = l
-	if len(m.Field1) > 0 {
-		for _, num := range m.Field1 {
-			data[i] = 0x8
-			i++
-			i = encodeVarintFuzz2(data, i, uint64(num))
-		}
-	}
-	if m.XXX_unrecognized != nil {
-		i += copy(data[i:], m.XXX_unrecognized)
-	}
-	return i, nil
-}
-
-func (m *NinOptEnumDefault) Marshal() (data []byte, err error) {
-	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
-	if err != nil {
-		return nil, err
-	}
-	return data[:n], nil
-}
-
-func (m *NinOptEnumDefault) MarshalTo(data []byte) (int, error) {
-	var i int
-	_ = i
-	var l int
-	_ = l
-	if m.Field1 != nil {
-		data[i] = 0x8
-		i++
-		i = encodeVarintFuzz2(data, i, uint64(*m.Field1))
-	}
-	if m.XXX_unrecognized != nil {
-		i += copy(data[i:], m.XXX_unrecognized)
-	}
-	return i, nil
-}
-
-func (m *MyExtendable) Marshal() (data []byte, err error) {
-	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
-	if err != nil {
-		return nil, err
-	}
-	return data[:n], nil
-}
-
-func (m *MyExtendable) MarshalTo(data []byte) (int, error) {
-	var i int
-	_ = i
-	var l int
-	_ = l
-	if m.Field1 != nil {
-		data[i] = 0x8
-		i++
-		i = encodeVarintFuzz2(data, i, uint64(*m.Field1))
-	}
-	if len(m.XXX_extensions) > 0 {
-		n, err := github_com_gogo_protobuf_proto.EncodeExtensionMap(m.XXX_extensions, data[i:])
-		if err != nil {
-			return 0, err
-		}
-		i += n
-	}
-	if m.XXX_unrecognized != nil {
-		i += copy(data[i:], m.XXX_unrecognized)
-	}
-	return i, nil
-}
-
-func (m *OtherExtenable) Marshal() (data []byte, err error) {
-	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
-	if err != nil {
-		return nil, err
-	}
-	return data[:n], nil
-}
-
-func (m *OtherExtenable) MarshalTo(data []byte) (int, error) {
-	var i int
-	_ = i
-	var l int
-	_ = l
-	if m.M != nil {
-		data[i] = 0xa
-		i++
-		i = encodeVarintFuzz2(data, i, uint64(m.M.Size()))
-		n28, err := m.M.MarshalTo(data[i:])
-		if err != nil {
-			return 0, err
-		}
-		i += n28
-	}
-	if m.Field2 != nil {
-		data[i] = 0x10
-		i++
-		i = encodeVarintFuzz2(data, i, uint64(*m.Field2))
-	}
-	if m.Field13 != nil {
-		data[i] = 0x68
-		i++
-		i = encodeVarintFuzz2(data, i, uint64(*m.Field13))
-	}
-	if len(m.XXX_extensions) > 0 {
-		n, err := github_com_gogo_protobuf_proto.EncodeExtensionMap(m.XXX_extensions, data[i:])
-		if err != nil {
-			return 0, err
-		}
-		i += n
-	}
-	if m.XXX_unrecognized != nil {
-		i += copy(data[i:], m.XXX_unrecognized)
-	}
-	return i, nil
-}
-
 func (m *NestedDefinition) Marshal() (data []byte, err error) {
 	size := m.Size()
 	data = make([]byte, size)
@@ -2174,30 +1771,25 @@ func (m *NestedDefinition) MarshalTo(data []byte) (int, error) {
 		i++
 		i = encodeVarintFuzz2(data, i, uint64(*m.Field1))
 	}
-	if m.EnumField != nil {
-		data[i] = 0x10
-		i++
-		i = encodeVarintFuzz2(data, i, uint64(*m.EnumField))
-	}
 	if m.NNM != nil {
 		data[i] = 0x1a
 		i++
 		i = encodeVarintFuzz2(data, i, uint64(m.NNM.Size()))
-		n29, err := m.NNM.MarshalTo(data[i:])
+		n28, err := m.NNM.MarshalTo(data[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n29
+		i += n28
 	}
 	if m.NM != nil {
 		data[i] = 0x22
 		i++
 		i = encodeVarintFuzz2(data, i, uint64(m.NM.Size()))
-		n30, err := m.NM.MarshalTo(data[i:])
+		n29, err := m.NM.MarshalTo(data[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n30
+		i += n29
 	}
 	if m.XXX_unrecognized != nil {
 		i += copy(data[i:], m.XXX_unrecognized)
@@ -2229,11 +1821,11 @@ func (m *NestedDefinition_NestedMessage) MarshalTo(data []byte) (int, error) {
 		data[i] = 0x12
 		i++
 		i = encodeVarintFuzz2(data, i, uint64(m.NNM.Size()))
-		n31, err := m.NNM.MarshalTo(data[i:])
+		n30, err := m.NNM.MarshalTo(data[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n31
+		i += n30
 	}
 	if m.XXX_unrecognized != nil {
 		i += copy(data[i:], m.XXX_unrecognized)
@@ -2287,26 +1879,21 @@ func (m *NestedScope) MarshalTo(data []byte) (int, error) {
 		data[i] = 0xa
 		i++
 		i = encodeVarintFuzz2(data, i, uint64(m.A.Size()))
-		n32, err := m.A.MarshalTo(data[i:])
+		n31, err := m.A.MarshalTo(data[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n32
-	}
-	if m.B != nil {
-		data[i] = 0x10
-		i++
-		i = encodeVarintFuzz2(data, i, uint64(*m.B))
+		i += n31
 	}
 	if m.C != nil {
 		data[i] = 0x1a
 		i++
 		i = encodeVarintFuzz2(data, i, uint64(m.C.Size()))
-		n33, err := m.C.MarshalTo(data[i:])
+		n32, err := m.C.MarshalTo(data[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n33
+		i += n32
 	}
 	if m.XXX_unrecognized != nil {
 		i += copy(data[i:], m.XXX_unrecognized)
@@ -2774,89 +2361,11 @@ func (m *Nil) Size() (n int) {
 	return n
 }
 
-func (m *NinOptEnum) Size() (n int) {
-	var l int
-	_ = l
-	if m.Field1 != nil {
-		n += 1 + sovFuzz2(uint64(*m.Field1))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
-
-func (m *NinRepEnum) Size() (n int) {
-	var l int
-	_ = l
-	if len(m.Field1) > 0 {
-		for _, e := range m.Field1 {
-			n += 1 + sovFuzz2(uint64(e))
-		}
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
-
-func (m *NinOptEnumDefault) Size() (n int) {
-	var l int
-	_ = l
-	if m.Field1 != nil {
-		n += 1 + sovFuzz2(uint64(*m.Field1))
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
-
-func (m *MyExtendable) Size() (n int) {
-	var l int
-	_ = l
-	if m.Field1 != nil {
-		n += 1 + sovFuzz2(uint64(*m.Field1))
-	}
-	if m.XXX_extensions != nil {
-		n += github_com_gogo_protobuf_proto.SizeOfExtensionMap(m.XXX_extensions)
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
-
-func (m *OtherExtenable) Size() (n int) {
-	var l int
-	_ = l
-	if m.M != nil {
-		l = m.M.Size()
-		n += 1 + l + sovFuzz2(uint64(l))
-	}
-	if m.Field2 != nil {
-		n += 1 + sovFuzz2(uint64(*m.Field2))
-	}
-	if m.Field13 != nil {
-		n += 1 + sovFuzz2(uint64(*m.Field13))
-	}
-	if m.XXX_extensions != nil {
-		n += github_com_gogo_protobuf_proto.SizeOfExtensionMap(m.XXX_extensions)
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
-
 func (m *NestedDefinition) Size() (n int) {
 	var l int
 	_ = l
 	if m.Field1 != nil {
 		n += 1 + sovFuzz2(uint64(*m.Field1))
-	}
-	if m.EnumField != nil {
-		n += 1 + sovFuzz2(uint64(*m.EnumField))
 	}
 	if m.NNM != nil {
 		l = m.NNM.Size()
@@ -2907,9 +2416,6 @@ func (m *NestedScope) Size() (n int) {
 	if m.A != nil {
 		l = m.A.Size()
 		n += 1 + l + sovFuzz2(uint64(l))
-	}
-	if m.B != nil {
-		n += 1 + sovFuzz2(uint64(*m.B))
 	}
 	if m.C != nil {
 		l = m.C.Size()
@@ -5049,422 +4555,6 @@ func (m *Nil) Unmarshal(data []byte) error {
 
 	return nil
 }
-func (m *NinOptEnum) Unmarshal(data []byte) error {
-	l := len(data)
-	iNdEx := 0
-	for iNdEx < l {
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := data[iNdEx]
-			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Field1", wireType)
-			}
-			var v TheTestEnum
-			for shift := uint(0); ; shift += 7 {
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := data[iNdEx]
-				iNdEx++
-				v |= (TheTestEnum(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Field1 = &v
-		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
-			skippy, err := skipFuzz2(data[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthFuzz2
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, data[iNdEx:iNdEx+skippy]...)
-			iNdEx += skippy
-		}
-	}
-
-	return nil
-}
-func (m *NinRepEnum) Unmarshal(data []byte) error {
-	l := len(data)
-	iNdEx := 0
-	for iNdEx < l {
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := data[iNdEx]
-			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Field1", wireType)
-			}
-			var v TheTestEnum
-			for shift := uint(0); ; shift += 7 {
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := data[iNdEx]
-				iNdEx++
-				v |= (TheTestEnum(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Field1 = append(m.Field1, v)
-		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
-			skippy, err := skipFuzz2(data[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthFuzz2
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, data[iNdEx:iNdEx+skippy]...)
-			iNdEx += skippy
-		}
-	}
-
-	return nil
-}
-func (m *NinOptEnumDefault) Unmarshal(data []byte) error {
-	l := len(data)
-	iNdEx := 0
-	for iNdEx < l {
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := data[iNdEx]
-			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Field1", wireType)
-			}
-			var v TheTestEnum
-			for shift := uint(0); ; shift += 7 {
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := data[iNdEx]
-				iNdEx++
-				v |= (TheTestEnum(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Field1 = &v
-		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
-			skippy, err := skipFuzz2(data[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthFuzz2
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, data[iNdEx:iNdEx+skippy]...)
-			iNdEx += skippy
-		}
-	}
-
-	return nil
-}
-func (m *MyExtendable) Unmarshal(data []byte) error {
-	l := len(data)
-	iNdEx := 0
-	for iNdEx < l {
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := data[iNdEx]
-			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Field1", wireType)
-			}
-			var v int64
-			for shift := uint(0); ; shift += 7 {
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := data[iNdEx]
-				iNdEx++
-				v |= (int64(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Field1 = &v
-		default:
-			if (fieldNum >= 100) && (fieldNum < 200) {
-				var sizeOfWire int
-				for {
-					sizeOfWire++
-					wire >>= 7
-					if wire == 0 {
-						break
-					}
-				}
-				iNdEx -= sizeOfWire
-				skippy, err := skipFuzz2(data[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthFuzz2
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				if m.XXX_extensions == nil {
-					m.XXX_extensions = make(map[int32]github_com_gogo_protobuf_proto.Extension)
-				}
-				m.XXX_extensions[int32(fieldNum)] = github_com_gogo_protobuf_proto.NewExtension(data[iNdEx : iNdEx+skippy])
-				iNdEx += skippy
-			} else {
-				var sizeOfWire int
-				for {
-					sizeOfWire++
-					wire >>= 7
-					if wire == 0 {
-						break
-					}
-				}
-				iNdEx -= sizeOfWire
-				skippy, err := skipFuzz2(data[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthFuzz2
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				m.XXX_unrecognized = append(m.XXX_unrecognized, data[iNdEx:iNdEx+skippy]...)
-				iNdEx += skippy
-			}
-		}
-	}
-
-	return nil
-}
-func (m *OtherExtenable) Unmarshal(data []byte) error {
-	l := len(data)
-	iNdEx := 0
-	for iNdEx < l {
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := data[iNdEx]
-			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field M", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := data[iNdEx]
-				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthFuzz2
-			}
-			postIndex := iNdEx + msglen
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.M == nil {
-				m.M = &MyExtendable{}
-			}
-			if err := m.M.Unmarshal(data[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		case 2:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Field2", wireType)
-			}
-			var v int64
-			for shift := uint(0); ; shift += 7 {
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := data[iNdEx]
-				iNdEx++
-				v |= (int64(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Field2 = &v
-		case 13:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Field13", wireType)
-			}
-			var v int64
-			for shift := uint(0); ; shift += 7 {
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := data[iNdEx]
-				iNdEx++
-				v |= (int64(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Field13 = &v
-		default:
-			if ((fieldNum >= 14) && (fieldNum < 17)) || ((fieldNum >= 10) && (fieldNum < 13)) {
-				var sizeOfWire int
-				for {
-					sizeOfWire++
-					wire >>= 7
-					if wire == 0 {
-						break
-					}
-				}
-				iNdEx -= sizeOfWire
-				skippy, err := skipFuzz2(data[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthFuzz2
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				if m.XXX_extensions == nil {
-					m.XXX_extensions = make(map[int32]github_com_gogo_protobuf_proto.Extension)
-				}
-				m.XXX_extensions[int32(fieldNum)] = github_com_gogo_protobuf_proto.NewExtension(data[iNdEx : iNdEx+skippy])
-				iNdEx += skippy
-			} else {
-				var sizeOfWire int
-				for {
-					sizeOfWire++
-					wire >>= 7
-					if wire == 0 {
-						break
-					}
-				}
-				iNdEx -= sizeOfWire
-				skippy, err := skipFuzz2(data[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthFuzz2
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				m.XXX_unrecognized = append(m.XXX_unrecognized, data[iNdEx:iNdEx+skippy]...)
-				iNdEx += skippy
-			}
-		}
-	}
-
-	return nil
-}
 func (m *NestedDefinition) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
@@ -5501,23 +4591,6 @@ func (m *NestedDefinition) Unmarshal(data []byte) error {
 				}
 			}
 			m.Field1 = &v
-		case 2:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field EnumField", wireType)
-			}
-			var v NestedDefinition_NestedEnum
-			for shift := uint(0); ; shift += 7 {
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := data[iNdEx]
-				iNdEx++
-				v |= (NestedDefinition_NestedEnum(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.EnumField = &v
 		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field NNM", wireType)
@@ -5821,23 +4894,6 @@ func (m *NestedScope) Unmarshal(data []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 2:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field B", wireType)
-			}
-			var v NestedDefinition_NestedEnum
-			for shift := uint(0); ; shift += 7 {
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := data[iNdEx]
-				iNdEx++
-				v |= (NestedDefinition_NestedEnum(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.B = &v
 		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field C", wireType)

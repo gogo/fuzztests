@@ -13,49 +13,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-type TheTestEnum3 int32
-
-const (
-	TheTestEnum3_D TheTestEnum3 = 0
-	TheTestEnum3_E TheTestEnum3 = 1
-	TheTestEnum3_F TheTestEnum3 = 2
-)
-
-var TheTestEnum3_name = map[int32]string{
-	0: "D",
-	1: "E",
-	2: "F",
-}
-var TheTestEnum3_value = map[string]int32{
-	"D": 0,
-	"E": 1,
-	"F": 2,
-}
-
-func (x TheTestEnum3) String() string {
-	return proto.EnumName(TheTestEnum3_name, int32(x))
-}
-
-type NestedDefinition3_NestedEnum3 int32
-
-const (
-	NestedDefinition3_TYPE_NESTED3 NestedDefinition3_NestedEnum3 = 0
-	NestedDefinition3_TYPE_NESTE3  NestedDefinition3_NestedEnum3 = 1
-)
-
-var NestedDefinition3_NestedEnum3_name = map[int32]string{
-	0: "TYPE_NESTED3",
-	1: "TYPE_NESTE3",
-}
-var NestedDefinition3_NestedEnum3_value = map[string]int32{
-	"TYPE_NESTED3": 0,
-	"TYPE_NESTE3":  1,
-}
-
-func (x NestedDefinition3_NestedEnum3) String() string {
-	return proto.EnumName(NestedDefinition3_NestedEnum3_name, int32(x))
-}
-
 type NinOptNative3 struct {
 	Field1  float64 `protobuf:"fixed64,1,opt,name=Field1,proto3" json:"Field1,omitempty"`
 	Field2  float32 `protobuf:"fixed32,2,opt,name=Field2,proto3" json:"Field2,omitempty"`
@@ -226,27 +183,10 @@ func (m *Nil3) Reset()         { *m = Nil3{} }
 func (m *Nil3) String() string { return proto.CompactTextString(m) }
 func (*Nil3) ProtoMessage()    {}
 
-type NinOptEnum3 struct {
-	Field1 TheTestEnum3 `protobuf:"varint,1,opt,name=Field1,proto3,enum=fuzztests.TheTestEnum3" json:"Field1,omitempty"`
-}
-
-func (m *NinOptEnum3) Reset()         { *m = NinOptEnum3{} }
-func (m *NinOptEnum3) String() string { return proto.CompactTextString(m) }
-func (*NinOptEnum3) ProtoMessage()    {}
-
-type NinRepEnum3 struct {
-	Field1 []TheTestEnum3 `protobuf:"varint,1,rep,name=Field1,enum=fuzztests.TheTestEnum3" json:"Field1,omitempty"`
-}
-
-func (m *NinRepEnum3) Reset()         { *m = NinRepEnum3{} }
-func (m *NinRepEnum3) String() string { return proto.CompactTextString(m) }
-func (*NinRepEnum3) ProtoMessage()    {}
-
 type NestedDefinition3 struct {
-	Field1    int64                                              `protobuf:"varint,1,opt,name=Field1,proto3" json:"Field1,omitempty"`
-	EnumField NestedDefinition3_NestedEnum3                      `protobuf:"varint,2,opt,name=EnumField,proto3,enum=fuzztests.NestedDefinition3_NestedEnum3" json:"EnumField,omitempty"`
-	NNM       *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,3,opt,name=NNM" json:"NNM,omitempty"`
-	NM        *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,4,opt,name=NM" json:"NM,omitempty"`
+	Field1 int64                                              `protobuf:"varint,1,opt,name=Field1,proto3" json:"Field1,omitempty"`
+	NNM    *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,3,opt,name=NNM" json:"NNM,omitempty"`
+	NM     *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,4,opt,name=NM" json:"NM,omitempty"`
 }
 
 func (m *NestedDefinition3) Reset()         { *m = NestedDefinition3{} }
@@ -297,7 +237,6 @@ func (*NestedDefinition3_NestedMessage3_NestedNestedMsg3) ProtoMessage() {}
 
 type NestedScope3 struct {
 	A *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,1,opt,name=A" json:"A,omitempty"`
-	B NestedDefinition3_NestedEnum3                      `protobuf:"varint,2,opt,name=B,proto3,enum=fuzztests.NestedDefinition3_NestedEnum3" json:"B,omitempty"`
 	C *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,3,opt,name=C" json:"C,omitempty"`
 }
 
@@ -319,10 +258,6 @@ func (m *NestedScope3) GetC() *NestedDefinition3_NestedMessage3 {
 	return nil
 }
 
-func init() {
-	proto.RegisterEnum("fuzztests.TheTestEnum3", TheTestEnum3_name, TheTestEnum3_value)
-	proto.RegisterEnum("fuzztests.NestedDefinition3_NestedEnum3", NestedDefinition3_NestedEnum3_name, NestedDefinition3_NestedEnum3_value)
-}
 func NewPopulatedNinOptNative3(r randyFuzz3, easy bool) *NinOptNative3 {
 	this := &NinOptNative3{}
 	this.Field1 = float64(r.Float64())
@@ -715,33 +650,12 @@ func NewPopulatedNil3(r randyFuzz3, easy bool) *Nil3 {
 	return this
 }
 
-func NewPopulatedNinOptEnum3(r randyFuzz3, easy bool) *NinOptEnum3 {
-	this := &NinOptEnum3{}
-	this.Field1 = TheTestEnum3([]int32{0, 1, 2}[r.Intn(3)])
-	if !easy && r.Intn(10) != 0 {
-	}
-	return this
-}
-
-func NewPopulatedNinRepEnum3(r randyFuzz3, easy bool) *NinRepEnum3 {
-	this := &NinRepEnum3{}
-	v44 := r.Intn(10)
-	this.Field1 = make([]TheTestEnum3, v44)
-	for i := 0; i < v44; i++ {
-		this.Field1[i] = TheTestEnum3([]int32{0, 1, 2}[r.Intn(3)])
-	}
-	if !easy && r.Intn(10) != 0 {
-	}
-	return this
-}
-
 func NewPopulatedNestedDefinition3(r randyFuzz3, easy bool) *NestedDefinition3 {
 	this := &NestedDefinition3{}
 	this.Field1 = int64(r.Int63())
 	if r.Intn(2) == 0 {
 		this.Field1 *= -1
 	}
-	this.EnumField = NestedDefinition3_NestedEnum3([]int32{0, 1}[r.Intn(2)])
 	if r.Intn(10) != 0 {
 		this.NNM = NewPopulatedNestedDefinition3_NestedMessage3_NestedNestedMsg3(r, easy)
 	}
@@ -777,7 +691,6 @@ func NewPopulatedNestedScope3(r randyFuzz3, easy bool) *NestedScope3 {
 	if r.Intn(10) != 0 {
 		this.A = NewPopulatedNestedDefinition3_NestedMessage3_NestedNestedMsg3(r, easy)
 	}
-	this.B = NestedDefinition3_NestedEnum3([]int32{0, 1}[r.Intn(2)])
 	if r.Intn(10) != 0 {
 		this.C = NewPopulatedNestedDefinition3_NestedMessage3(r, easy)
 	}
@@ -805,9 +718,9 @@ func randUTF8RuneFuzz3(r randyFuzz3) rune {
 	return rune(ru + 61)
 }
 func randStringFuzz3(r randyFuzz3) string {
-	v45 := r.Intn(100)
-	tmps := make([]rune, v45)
-	for i := 0; i < v45; i++ {
+	v44 := r.Intn(100)
+	tmps := make([]rune, v44)
+	for i := 0; i < v44; i++ {
 		tmps[i] = randUTF8RuneFuzz3(r)
 	}
 	return string(tmps)
@@ -829,11 +742,11 @@ func randFieldFuzz3(data []byte, r randyFuzz3, fieldNumber int, wire int) []byte
 	switch wire {
 	case 0:
 		data = encodeVarintPopulateFuzz3(data, uint64(key))
-		v46 := r.Int63()
+		v45 := r.Int63()
 		if r.Intn(2) == 0 {
-			v46 *= -1
+			v45 *= -1
 		}
-		data = encodeVarintPopulateFuzz3(data, uint64(v46))
+		data = encodeVarintPopulateFuzz3(data, uint64(v45))
 	case 1:
 		data = encodeVarintPopulateFuzz3(data, uint64(key))
 		data = append(data, byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)))

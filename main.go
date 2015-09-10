@@ -1,7 +1,5 @@
-// Extensions for Protocol Buffers to create more go like structures.
-//
 // Copyright (c) 2015, Vastech SA (PTY) LTD. All rights reserved.
-// http://github.com/gogo/protobuf/gogoproto
+// http://github.com/gogo/fuzztests
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -29,6 +27,7 @@
 package fuzztests
 
 import (
+	"fmt"
 	gofast "github.com/gogo/fuzztests/gofast"
 	gogo "github.com/gogo/fuzztests/gogo"
 	gogofast "github.com/gogo/fuzztests/gogofast"
@@ -47,6 +46,7 @@ func Fuzz(data []byte) int {
 		score = 1
 		gofastpb := gofast.NewFuncs[i]()
 		if err := goproto.Unmarshal(data, gofastpb); err != nil {
+			err = fmt.Errorf("%v:%T:%T", err, golangpb, gofastpb)
 			panic(err)
 		}
 		if !goproto.Equal(golangpb, gofastpb) {
@@ -57,7 +57,7 @@ func Fuzz(data []byte) int {
 			panic(err)
 		}
 		gogofastpb := gogofast.NewFuncs[i]()
-		if err != gogoproto.Unmarshal(data, gogofastpb); err != nil {
+		if err := gogoproto.Unmarshal(data, gogofastpb); err != nil {
 			panic(err)
 		}
 		if !gogoproto.Equal(gogopb, gogofastpb) {

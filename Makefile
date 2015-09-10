@@ -1,3 +1,9 @@
+fuzz:
+	go install github.com/dvyukov/go-fuzz/go-fuzz-build
+	go-fuzz-build github.com/gogo/fuzztests
+	go install github.com/dvyukov/go-fuzz/go-fuzz
+	go-fuzz -bin=./fuzztests-fuzz.zip -workdir=.
+
 regenerate:
 	go install ./protoc-gen-gogomsglist
 	protoc --go_out=./golang/ *.proto
@@ -15,10 +21,6 @@ regenerate:
 	go install ./gengogofuzztests
 	gengogofuzztests ./corpus
 	make gofmt
-
-fuzz:
-	go-fuzz-build github.com/gogo/fuzztests
-	go-fuzz -bin=./fuzztests-fuzz.zip -workdir=.
 
 clean:
 	go clean ./...

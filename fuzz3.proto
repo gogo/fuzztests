@@ -1,5 +1,5 @@
-// Copyright (c) 2013, Vastech SA (PTY) LTD. All rights reserved.
-// http://github.com/gogo/protobuf/gogoproto
+// Copyright (c) 2015, Vastech SA (PTY) LTD. All rights reserved.
+// http://github.com/gogo/fuzztests
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -115,20 +115,6 @@ message Nil3 {
 
 }
 
-enum TheTestEnum3 {
-    D = 0;
-    E = 1;
-    F = 2;
-}
-
-message NinOptEnum3 {
-  optional TheTestEnum3 Field1 = 1;
-}
-
-message NinRepEnum3 {
-  repeated TheTestEnum3 Field1 = 1;
-}
-
 message NestedDefinition3 {
   optional int64 Field1 = 1;
   message NestedMessage3 {
@@ -138,18 +124,12 @@ message NestedDefinition3 {
       optional string NestedNestedField1 = 10;
     }
   }
-  enum NestedEnum3 {
-    TYPE_NESTED3 = 0;
-    TYPE_NESTE3 = 1;
-  }
-  optional NestedEnum3 EnumField = 2;
   optional NestedMessage3.NestedNestedMsg3 NNM = 3;
   optional NestedMessage3 NM = 4;
 }
 
 message NestedScope3 {
   optional NestedDefinition3.NestedMessage3.NestedNestedMsg3 A = 1;
-  optional NestedDefinition3.NestedEnum3 B = 2;
   optional NestedDefinition3.NestedMessage3 C = 3;
 }
 
