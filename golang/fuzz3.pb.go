@@ -5,26 +5,30 @@
 package fuzztests
 
 import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
+var _ = fmt.Errorf
+var _ = math.Inf
 
 type NinOptNative3 struct {
-	Field1  float64 `protobuf:"fixed64,1,opt" json:"Field1,omitempty"`
-	Field2  float32 `protobuf:"fixed32,2,opt" json:"Field2,omitempty"`
-	Field3  int32   `protobuf:"varint,3,opt" json:"Field3,omitempty"`
-	Field4  int64   `protobuf:"varint,4,opt" json:"Field4,omitempty"`
-	Field5  uint32  `protobuf:"varint,5,opt" json:"Field5,omitempty"`
-	Field6  uint64  `protobuf:"varint,6,opt" json:"Field6,omitempty"`
-	Field7  int32   `protobuf:"zigzag32,7,opt" json:"Field7,omitempty"`
-	Field8  int64   `protobuf:"zigzag64,8,opt" json:"Field8,omitempty"`
-	Field9  uint32  `protobuf:"fixed32,9,opt" json:"Field9,omitempty"`
-	Field10 int32   `protobuf:"fixed32,10,opt" json:"Field10,omitempty"`
-	Field11 uint64  `protobuf:"fixed64,11,opt" json:"Field11,omitempty"`
-	Field12 int64   `protobuf:"fixed64,12,opt" json:"Field12,omitempty"`
-	Field13 bool    `protobuf:"varint,13,opt" json:"Field13,omitempty"`
-	Field14 string  `protobuf:"bytes,14,opt" json:"Field14,omitempty"`
-	Field15 []byte  `protobuf:"bytes,15,opt,proto3" json:"Field15,omitempty"`
+	Field1  float64 `protobuf:"fixed64,1,opt,name=Field1" json:"Field1,omitempty"`
+	Field2  float32 `protobuf:"fixed32,2,opt,name=Field2" json:"Field2,omitempty"`
+	Field3  int32   `protobuf:"varint,3,opt,name=Field3" json:"Field3,omitempty"`
+	Field4  int64   `protobuf:"varint,4,opt,name=Field4" json:"Field4,omitempty"`
+	Field5  uint32  `protobuf:"varint,5,opt,name=Field5" json:"Field5,omitempty"`
+	Field6  uint64  `protobuf:"varint,6,opt,name=Field6" json:"Field6,omitempty"`
+	Field7  int32   `protobuf:"zigzag32,7,opt,name=Field7" json:"Field7,omitempty"`
+	Field8  int64   `protobuf:"zigzag64,8,opt,name=Field8" json:"Field8,omitempty"`
+	Field9  uint32  `protobuf:"fixed32,9,opt,name=Field9" json:"Field9,omitempty"`
+	Field10 int32   `protobuf:"fixed32,10,opt,name=Field10" json:"Field10,omitempty"`
+	Field11 uint64  `protobuf:"fixed64,11,opt,name=Field11" json:"Field11,omitempty"`
+	Field12 int64   `protobuf:"fixed64,12,opt,name=Field12" json:"Field12,omitempty"`
+	Field13 bool    `protobuf:"varint,13,opt,name=Field13" json:"Field13,omitempty"`
+	Field14 string  `protobuf:"bytes,14,opt,name=Field14" json:"Field14,omitempty"`
+	Field15 []byte  `protobuf:"bytes,15,opt,name=Field15,proto3" json:"Field15,omitempty"`
 }
 
 func (m *NinOptNative3) Reset()         { *m = NinOptNative3{} }
@@ -32,21 +36,21 @@ func (m *NinOptNative3) String() string { return proto.CompactTextString(m) }
 func (*NinOptNative3) ProtoMessage()    {}
 
 type NinRepNative3 struct {
-	Field1  []float64 `protobuf:"fixed64,1,rep" json:"Field1,omitempty"`
-	Field2  []float32 `protobuf:"fixed32,2,rep" json:"Field2,omitempty"`
-	Field3  []int32   `protobuf:"varint,3,rep" json:"Field3,omitempty"`
-	Field4  []int64   `protobuf:"varint,4,rep" json:"Field4,omitempty"`
-	Field5  []uint32  `protobuf:"varint,5,rep" json:"Field5,omitempty"`
-	Field6  []uint64  `protobuf:"varint,6,rep" json:"Field6,omitempty"`
-	Field7  []int32   `protobuf:"zigzag32,7,rep" json:"Field7,omitempty"`
-	Field8  []int64   `protobuf:"zigzag64,8,rep" json:"Field8,omitempty"`
-	Field9  []uint32  `protobuf:"fixed32,9,rep" json:"Field9,omitempty"`
-	Field10 []int32   `protobuf:"fixed32,10,rep" json:"Field10,omitempty"`
-	Field11 []uint64  `protobuf:"fixed64,11,rep" json:"Field11,omitempty"`
-	Field12 []int64   `protobuf:"fixed64,12,rep" json:"Field12,omitempty"`
-	Field13 []bool    `protobuf:"varint,13,rep" json:"Field13,omitempty"`
-	Field14 []string  `protobuf:"bytes,14,rep" json:"Field14,omitempty"`
-	Field15 [][]byte  `protobuf:"bytes,15,rep,proto3" json:"Field15,omitempty"`
+	Field1  []float64 `protobuf:"fixed64,1,rep,name=Field1" json:"Field1,omitempty"`
+	Field2  []float32 `protobuf:"fixed32,2,rep,name=Field2" json:"Field2,omitempty"`
+	Field3  []int32   `protobuf:"varint,3,rep,name=Field3" json:"Field3,omitempty"`
+	Field4  []int64   `protobuf:"varint,4,rep,name=Field4" json:"Field4,omitempty"`
+	Field5  []uint32  `protobuf:"varint,5,rep,name=Field5" json:"Field5,omitempty"`
+	Field6  []uint64  `protobuf:"varint,6,rep,name=Field6" json:"Field6,omitempty"`
+	Field7  []int32   `protobuf:"zigzag32,7,rep,name=Field7" json:"Field7,omitempty"`
+	Field8  []int64   `protobuf:"zigzag64,8,rep,name=Field8" json:"Field8,omitempty"`
+	Field9  []uint32  `protobuf:"fixed32,9,rep,name=Field9" json:"Field9,omitempty"`
+	Field10 []int32   `protobuf:"fixed32,10,rep,name=Field10" json:"Field10,omitempty"`
+	Field11 []uint64  `protobuf:"fixed64,11,rep,name=Field11" json:"Field11,omitempty"`
+	Field12 []int64   `protobuf:"fixed64,12,rep,name=Field12" json:"Field12,omitempty"`
+	Field13 []bool    `protobuf:"varint,13,rep,name=Field13" json:"Field13,omitempty"`
+	Field14 []string  `protobuf:"bytes,14,rep,name=Field14" json:"Field14,omitempty"`
+	Field15 [][]byte  `protobuf:"bytes,15,rep,name=Field15,proto3" json:"Field15,omitempty"`
 }
 
 func (m *NinRepNative3) Reset()         { *m = NinRepNative3{} }
@@ -54,19 +58,19 @@ func (m *NinRepNative3) String() string { return proto.CompactTextString(m) }
 func (*NinRepNative3) ProtoMessage()    {}
 
 type NinRepPackedNative3 struct {
-	Field1  []float64 `protobuf:"fixed64,1,rep,packed" json:"Field1,omitempty"`
-	Field2  []float32 `protobuf:"fixed32,2,rep,packed" json:"Field2,omitempty"`
-	Field3  []int32   `protobuf:"varint,3,rep,packed" json:"Field3,omitempty"`
-	Field4  []int64   `protobuf:"varint,4,rep,packed" json:"Field4,omitempty"`
-	Field5  []uint32  `protobuf:"varint,5,rep,packed" json:"Field5,omitempty"`
-	Field6  []uint64  `protobuf:"varint,6,rep,packed" json:"Field6,omitempty"`
-	Field7  []int32   `protobuf:"zigzag32,7,rep,packed" json:"Field7,omitempty"`
-	Field8  []int64   `protobuf:"zigzag64,8,rep,packed" json:"Field8,omitempty"`
-	Field9  []uint32  `protobuf:"fixed32,9,rep,packed" json:"Field9,omitempty"`
-	Field10 []int32   `protobuf:"fixed32,10,rep,packed" json:"Field10,omitempty"`
-	Field11 []uint64  `protobuf:"fixed64,11,rep,packed" json:"Field11,omitempty"`
-	Field12 []int64   `protobuf:"fixed64,12,rep,packed" json:"Field12,omitempty"`
-	Field13 []bool    `protobuf:"varint,13,rep,packed" json:"Field13,omitempty"`
+	Field1  []float64 `protobuf:"fixed64,1,rep,packed,name=Field1" json:"Field1,omitempty"`
+	Field2  []float32 `protobuf:"fixed32,2,rep,packed,name=Field2" json:"Field2,omitempty"`
+	Field3  []int32   `protobuf:"varint,3,rep,packed,name=Field3" json:"Field3,omitempty"`
+	Field4  []int64   `protobuf:"varint,4,rep,packed,name=Field4" json:"Field4,omitempty"`
+	Field5  []uint32  `protobuf:"varint,5,rep,packed,name=Field5" json:"Field5,omitempty"`
+	Field6  []uint64  `protobuf:"varint,6,rep,packed,name=Field6" json:"Field6,omitempty"`
+	Field7  []int32   `protobuf:"zigzag32,7,rep,packed,name=Field7" json:"Field7,omitempty"`
+	Field8  []int64   `protobuf:"zigzag64,8,rep,packed,name=Field8" json:"Field8,omitempty"`
+	Field9  []uint32  `protobuf:"fixed32,9,rep,packed,name=Field9" json:"Field9,omitempty"`
+	Field10 []int32   `protobuf:"fixed32,10,rep,packed,name=Field10" json:"Field10,omitempty"`
+	Field11 []uint64  `protobuf:"fixed64,11,rep,packed,name=Field11" json:"Field11,omitempty"`
+	Field12 []int64   `protobuf:"fixed64,12,rep,packed,name=Field12" json:"Field12,omitempty"`
+	Field13 []bool    `protobuf:"varint,13,rep,packed,name=Field13" json:"Field13,omitempty"`
 }
 
 func (m *NinRepPackedNative3) Reset()         { *m = NinRepPackedNative3{} }
@@ -74,16 +78,16 @@ func (m *NinRepPackedNative3) String() string { return proto.CompactTextString(m
 func (*NinRepPackedNative3) ProtoMessage()    {}
 
 type NinOptStruct3 struct {
-	Field1  float64        `protobuf:"fixed64,1,opt" json:"Field1,omitempty"`
-	Field2  float32        `protobuf:"fixed32,2,opt" json:"Field2,omitempty"`
-	Field3  *NinOptNative3 `protobuf:"bytes,3,opt" json:"Field3,omitempty"`
-	Field4  *NinOptNative3 `protobuf:"bytes,4,opt" json:"Field4,omitempty"`
-	Field6  uint64         `protobuf:"varint,6,opt" json:"Field6,omitempty"`
-	Field7  int32          `protobuf:"zigzag32,7,opt" json:"Field7,omitempty"`
-	Field8  *NinOptNative3 `protobuf:"bytes,8,opt" json:"Field8,omitempty"`
-	Field13 bool           `protobuf:"varint,13,opt" json:"Field13,omitempty"`
-	Field14 string         `protobuf:"bytes,14,opt" json:"Field14,omitempty"`
-	Field15 []byte         `protobuf:"bytes,15,opt,proto3" json:"Field15,omitempty"`
+	Field1  float64        `protobuf:"fixed64,1,opt,name=Field1" json:"Field1,omitempty"`
+	Field2  float32        `protobuf:"fixed32,2,opt,name=Field2" json:"Field2,omitempty"`
+	Field3  *NinOptNative3 `protobuf:"bytes,3,opt,name=Field3" json:"Field3,omitempty"`
+	Field4  *NinOptNative3 `protobuf:"bytes,4,opt,name=Field4" json:"Field4,omitempty"`
+	Field6  uint64         `protobuf:"varint,6,opt,name=Field6" json:"Field6,omitempty"`
+	Field7  int32          `protobuf:"zigzag32,7,opt,name=Field7" json:"Field7,omitempty"`
+	Field8  *NinOptNative3 `protobuf:"bytes,8,opt,name=Field8" json:"Field8,omitempty"`
+	Field13 bool           `protobuf:"varint,13,opt,name=Field13" json:"Field13,omitempty"`
+	Field14 string         `protobuf:"bytes,14,opt,name=Field14" json:"Field14,omitempty"`
+	Field15 []byte         `protobuf:"bytes,15,opt,name=Field15,proto3" json:"Field15,omitempty"`
 }
 
 func (m *NinOptStruct3) Reset()         { *m = NinOptStruct3{} }
@@ -112,16 +116,16 @@ func (m *NinOptStruct3) GetField8() *NinOptNative3 {
 }
 
 type NinRepStruct3 struct {
-	Field1  []float64        `protobuf:"fixed64,1,rep" json:"Field1,omitempty"`
-	Field2  []float32        `protobuf:"fixed32,2,rep" json:"Field2,omitempty"`
-	Field3  []*NinOptNative3 `protobuf:"bytes,3,rep" json:"Field3,omitempty"`
-	Field4  []*NinOptNative3 `protobuf:"bytes,4,rep" json:"Field4,omitempty"`
-	Field6  []uint64         `protobuf:"varint,6,rep" json:"Field6,omitempty"`
-	Field7  []int32          `protobuf:"zigzag32,7,rep" json:"Field7,omitempty"`
-	Field8  []*NinOptNative3 `protobuf:"bytes,8,rep" json:"Field8,omitempty"`
-	Field13 []bool           `protobuf:"varint,13,rep" json:"Field13,omitempty"`
-	Field14 []string         `protobuf:"bytes,14,rep" json:"Field14,omitempty"`
-	Field15 [][]byte         `protobuf:"bytes,15,rep,proto3" json:"Field15,omitempty"`
+	Field1  []float64        `protobuf:"fixed64,1,rep,name=Field1" json:"Field1,omitempty"`
+	Field2  []float32        `protobuf:"fixed32,2,rep,name=Field2" json:"Field2,omitempty"`
+	Field3  []*NinOptNative3 `protobuf:"bytes,3,rep,name=Field3" json:"Field3,omitempty"`
+	Field4  []*NinOptNative3 `protobuf:"bytes,4,rep,name=Field4" json:"Field4,omitempty"`
+	Field6  []uint64         `protobuf:"varint,6,rep,name=Field6" json:"Field6,omitempty"`
+	Field7  []int32          `protobuf:"zigzag32,7,rep,name=Field7" json:"Field7,omitempty"`
+	Field8  []*NinOptNative3 `protobuf:"bytes,8,rep,name=Field8" json:"Field8,omitempty"`
+	Field13 []bool           `protobuf:"varint,13,rep,name=Field13" json:"Field13,omitempty"`
+	Field14 []string         `protobuf:"bytes,14,rep,name=Field14" json:"Field14,omitempty"`
+	Field15 [][]byte         `protobuf:"bytes,15,rep,name=Field15,proto3" json:"Field15,omitempty"`
 }
 
 func (m *NinRepStruct3) Reset()         { *m = NinRepStruct3{} }
@@ -150,8 +154,8 @@ func (m *NinRepStruct3) GetField8() []*NinOptNative3 {
 }
 
 type NinNestedStruct3 struct {
-	Field1 *NinOptStruct3   `protobuf:"bytes,1,opt" json:"Field1,omitempty"`
-	Field2 []*NinRepStruct3 `protobuf:"bytes,2,rep" json:"Field2,omitempty"`
+	Field1 *NinOptStruct3   `protobuf:"bytes,1,opt,name=Field1" json:"Field1,omitempty"`
+	Field2 []*NinRepStruct3 `protobuf:"bytes,2,rep,name=Field2" json:"Field2,omitempty"`
 }
 
 func (m *NinNestedStruct3) Reset()         { *m = NinNestedStruct3{} }
@@ -180,9 +184,9 @@ func (m *Nil3) String() string { return proto.CompactTextString(m) }
 func (*Nil3) ProtoMessage()    {}
 
 type NestedDefinition3 struct {
-	Field1 int64                                              `protobuf:"varint,1,opt" json:"Field1,omitempty"`
-	NNM    *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,3,opt" json:"NNM,omitempty"`
-	NM     *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,4,opt" json:"NM,omitempty"`
+	Field1 int64                                              `protobuf:"varint,1,opt,name=Field1" json:"Field1,omitempty"`
+	NNM    *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,3,opt,name=NNM" json:"NNM,omitempty"`
+	NM     *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,4,opt,name=NM" json:"NM,omitempty"`
 }
 
 func (m *NestedDefinition3) Reset()         { *m = NestedDefinition3{} }
@@ -204,8 +208,8 @@ func (m *NestedDefinition3) GetNM() *NestedDefinition3_NestedMessage3 {
 }
 
 type NestedDefinition3_NestedMessage3 struct {
-	NestedField1 uint64                                             `protobuf:"fixed64,1,opt" json:"NestedField1,omitempty"`
-	NNM          *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,2,opt" json:"NNM,omitempty"`
+	NestedField1 uint64                                             `protobuf:"fixed64,1,opt,name=NestedField1" json:"NestedField1,omitempty"`
+	NNM          *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,2,opt,name=NNM" json:"NNM,omitempty"`
 }
 
 func (m *NestedDefinition3_NestedMessage3) Reset()         { *m = NestedDefinition3_NestedMessage3{} }
@@ -220,7 +224,7 @@ func (m *NestedDefinition3_NestedMessage3) GetNNM() *NestedDefinition3_NestedMes
 }
 
 type NestedDefinition3_NestedMessage3_NestedNestedMsg3 struct {
-	NestedNestedField1 string `protobuf:"bytes,10,opt" json:"NestedNestedField1,omitempty"`
+	NestedNestedField1 string `protobuf:"bytes,10,opt,name=NestedNestedField1" json:"NestedNestedField1,omitempty"`
 }
 
 func (m *NestedDefinition3_NestedMessage3_NestedNestedMsg3) Reset() {
@@ -232,8 +236,8 @@ func (m *NestedDefinition3_NestedMessage3_NestedNestedMsg3) String() string {
 func (*NestedDefinition3_NestedMessage3_NestedNestedMsg3) ProtoMessage() {}
 
 type NestedScope3 struct {
-	A *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,1,opt" json:"A,omitempty"`
-	C *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,3,opt" json:"C,omitempty"`
+	A *NestedDefinition3_NestedMessage3_NestedNestedMsg3 `protobuf:"bytes,1,opt,name=A" json:"A,omitempty"`
+	C *NestedDefinition3_NestedMessage3                  `protobuf:"bytes,3,opt,name=C" json:"C,omitempty"`
 }
 
 func (m *NestedScope3) Reset()         { *m = NestedScope3{} }
