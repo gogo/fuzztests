@@ -54,6 +54,7 @@ func Fuzz(data []byte) int {
 		if err := goproto.Unmarshal(data, golangpb); err != nil {
 			continue
 		}
+		score = 1
 		data2, err := goproto.Marshal(golangpb)
 		if err != nil {
 			panic(err)
@@ -61,7 +62,6 @@ func Fuzz(data []byte) int {
 		if !bytes.Equal(data, data2) {
 			panic("golang proto is not idempotent")
 		}
-		score = 1
 		gofastpb := gofast.NewFuncs[i]()
 		if err := goproto.Unmarshal(data, gofastpb); err != nil {
 			debug("gofastpb unmarshal", i, data, err)
