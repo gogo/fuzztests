@@ -66,8 +66,15 @@ func Fuzz(data []byte) int {
 		if err := goproto.Unmarshal(data, gofastpb); err != nil {
 			debug("gofastpb unmarshal", i, data, err)
 		}
+		data3, err := goproto.Marshal(gofastpb)
+		if err != nil {
+			panic(err)
+		}
+		if !bytes.Equal(data, data3) {
+			panic("gofast proto is not idempotent")
+		}
 		if !goproto.Equal(golangpb, gofastpb) {
-			panic("golangpb != gofastpb")
+			panic(fmt.Sprintf("[%d](%T) golangpb != gofastpb", i, golangpb))
 		}
 		gogopb := gogo.NewFuncs[i]()
 		if err := gogoproto.Unmarshal(data, gogopb); err != nil {
@@ -78,7 +85,7 @@ func Fuzz(data []byte) int {
 			debug("gogofastpb unmarshal", i, data, err)
 		}
 		if !gogoproto.Equal(gogopb, gogofastpb) {
-			panic("gogopb != gogofastpb")
+			panic(fmt.Sprintf("[%d](%T) gogopb != gogofastpb", i, gogopb))
 		}
 	}
 	return score

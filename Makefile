@@ -18,6 +18,8 @@ regenerate:
 	protoc --gogopop_out=./gengogofuzztests/gogopop/ *.proto
 	protoc --gogomsglist_out=./gengogofuzztests/gogopop/ *.proto
 	rm -rf corpus || true
+	rm -rf crashers || true
+	rm -rf suppressions || true
 	mkdir corpus
 	go install ./gengogofuzztests
 	gengogofuzztests ./corpus
