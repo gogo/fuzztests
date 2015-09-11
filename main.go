@@ -80,6 +80,14 @@ func Fuzz(data []byte) int {
 		if err := goproto.Unmarshal(data, golangpb); err != nil {
 			continue
 		}
+		output, err := goproto.Marshal(golangpb)
+		if err != nil {
+			panic(err)
+		}
+		if !bytes.Equal(data, output) {
+			//Lets ignore the ones where golang/protobuf is not idempotent, since this is actually a test for gogoprotobuf and not golang/protobuf
+			continue
+		}
 		score = 1
 		golangassert("golang", i, data, golang.NewFuncs[i]())
 		golangassert("gofast", i, data, gofast.NewFuncs[i]())
