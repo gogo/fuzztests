@@ -39,6 +39,7 @@ func main() {
 	files := req.GetProtoFile()
 	files = vanity.FilterFiles(files, vanity.NotInPackageGoogleProtobuf)
 	vanity.ForEachFile(files, vanity.TurnOnPopulateAll)
+	vanity.ForEachFile(files, vanity.TurnOnGoStringAll)
 	resp := command.Generate(req)
 
 	msgs := []string{}

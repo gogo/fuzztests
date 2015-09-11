@@ -27,7 +27,9 @@
 package fuzztests
 
 import (
+	"bytes"
 	"fmt"
+	gogopop "github.com/gogo/fuzztests/gengogofuzztests/gogopop"
 	gofast "github.com/gogo/fuzztests/gofast"
 	gogo "github.com/gogo/fuzztests/gogo"
 	gogofast "github.com/gogo/fuzztests/gogofast"
@@ -36,6 +38,15 @@ import (
 	goproto "github.com/golang/protobuf/proto"
 )
 
+func debug(s string, i int, data []byte, err error) {
+	gostringer := gogopop.NewFuncs[i]()
+	if err := gogoproto.Unmarshal(data, gostringer); err == nil {
+		s += ":" + fmt.Sprintf("%#v", gostringer)
+	}
+	err = fmt.Errorf("[%d](%T):%s:%v", i, gostringer, s, err)
+	panic(err)
+}
+
 func Fuzz(data []byte) int {
 	score := 0
 	for i, golangf := range golang.NewFuncs {
@@ -43,22 +54,28 @@ func Fuzz(data []byte) int {
 		if err := goproto.Unmarshal(data, golangpb); err != nil {
 			continue
 		}
+		data2, err := goproto.Marshal(golangpb)
+		if err != nil {
+			panic(err)
+		}
+		if !bytes.Equal(data, data2) {
+			panic("golang proto is not idempotent")
+		}
 		score = 1
 		gofastpb := gofast.NewFuncs[i]()
 		if err := goproto.Unmarshal(data, gofastpb); err != nil {
-			err = fmt.Errorf("%v:%T:%T", err, golangpb, gofastpb)
-			panic(err)
+			debug("gofastpb unmarshal", i, data, err)
 		}
 		if !goproto.Equal(golangpb, gofastpb) {
 			panic("golangpb != gofastpb")
 		}
 		gogopb := gogo.NewFuncs[i]()
 		if err := gogoproto.Unmarshal(data, gogopb); err != nil {
-			panic(err)
+			debug("gogopb unmarshal", i, data, err)
 		}
 		gogofastpb := gogofast.NewFuncs[i]()
 		if err := gogoproto.Unmarshal(data, gogofastpb); err != nil {
-			panic(err)
+			debug("gogofastpb unmarshal", i, data, err)
 		}
 		if !gogoproto.Equal(gogopb, gogofastpb) {
 			panic("gogopb != gogofastpb")

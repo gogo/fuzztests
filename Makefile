@@ -16,6 +16,7 @@ regenerate:
 	protoc --gogomsglist_out=./gogofast/ *proto
 	go install ./protoc-gen-gogopop
 	protoc --gogopop_out=./gengogofuzztests/gogopop/ *.proto
+	protoc --gogomsglist_out=./gengogofuzztests/gogopop/ *.proto
 	rm -rf corpus || true
 	mkdir corpus
 	go install ./gengogofuzztests

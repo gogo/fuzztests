@@ -8,6 +8,12 @@ import proto "github.com/gogo/protobuf/proto"
 import fmt "fmt"
 import math "math"
 
+import strings "strings"
+import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
+import sort "sort"
+import strconv "strconv"
+import reflect "reflect"
+
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
@@ -258,6 +264,229 @@ func (m *NestedScope3) GetC() *NestedDefinition3_NestedMessage3 {
 	return nil
 }
 
+func (this *NinOptNative3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 19)
+	s = append(s, "&fuzztests.NinOptNative3{")
+	s = append(s, "Field1: "+fmt.Sprintf("%#v", this.Field1)+",\n")
+	s = append(s, "Field2: "+fmt.Sprintf("%#v", this.Field2)+",\n")
+	s = append(s, "Field3: "+fmt.Sprintf("%#v", this.Field3)+",\n")
+	s = append(s, "Field4: "+fmt.Sprintf("%#v", this.Field4)+",\n")
+	s = append(s, "Field5: "+fmt.Sprintf("%#v", this.Field5)+",\n")
+	s = append(s, "Field6: "+fmt.Sprintf("%#v", this.Field6)+",\n")
+	s = append(s, "Field7: "+fmt.Sprintf("%#v", this.Field7)+",\n")
+	s = append(s, "Field8: "+fmt.Sprintf("%#v", this.Field8)+",\n")
+	s = append(s, "Field9: "+fmt.Sprintf("%#v", this.Field9)+",\n")
+	s = append(s, "Field10: "+fmt.Sprintf("%#v", this.Field10)+",\n")
+	s = append(s, "Field11: "+fmt.Sprintf("%#v", this.Field11)+",\n")
+	s = append(s, "Field12: "+fmt.Sprintf("%#v", this.Field12)+",\n")
+	s = append(s, "Field13: "+fmt.Sprintf("%#v", this.Field13)+",\n")
+	s = append(s, "Field14: "+fmt.Sprintf("%#v", this.Field14)+",\n")
+	s = append(s, "Field15: "+fmt.Sprintf("%#v", this.Field15)+",\n")
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *NinRepNative3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 19)
+	s = append(s, "&fuzztests.NinRepNative3{")
+	s = append(s, "Field1: "+fmt.Sprintf("%#v", this.Field1)+",\n")
+	s = append(s, "Field2: "+fmt.Sprintf("%#v", this.Field2)+",\n")
+	s = append(s, "Field3: "+fmt.Sprintf("%#v", this.Field3)+",\n")
+	s = append(s, "Field4: "+fmt.Sprintf("%#v", this.Field4)+",\n")
+	s = append(s, "Field5: "+fmt.Sprintf("%#v", this.Field5)+",\n")
+	s = append(s, "Field6: "+fmt.Sprintf("%#v", this.Field6)+",\n")
+	s = append(s, "Field7: "+fmt.Sprintf("%#v", this.Field7)+",\n")
+	s = append(s, "Field8: "+fmt.Sprintf("%#v", this.Field8)+",\n")
+	s = append(s, "Field9: "+fmt.Sprintf("%#v", this.Field9)+",\n")
+	s = append(s, "Field10: "+fmt.Sprintf("%#v", this.Field10)+",\n")
+	s = append(s, "Field11: "+fmt.Sprintf("%#v", this.Field11)+",\n")
+	s = append(s, "Field12: "+fmt.Sprintf("%#v", this.Field12)+",\n")
+	s = append(s, "Field13: "+fmt.Sprintf("%#v", this.Field13)+",\n")
+	s = append(s, "Field14: "+fmt.Sprintf("%#v", this.Field14)+",\n")
+	s = append(s, "Field15: "+fmt.Sprintf("%#v", this.Field15)+",\n")
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *NinRepPackedNative3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 17)
+	s = append(s, "&fuzztests.NinRepPackedNative3{")
+	s = append(s, "Field1: "+fmt.Sprintf("%#v", this.Field1)+",\n")
+	s = append(s, "Field2: "+fmt.Sprintf("%#v", this.Field2)+",\n")
+	s = append(s, "Field3: "+fmt.Sprintf("%#v", this.Field3)+",\n")
+	s = append(s, "Field4: "+fmt.Sprintf("%#v", this.Field4)+",\n")
+	s = append(s, "Field5: "+fmt.Sprintf("%#v", this.Field5)+",\n")
+	s = append(s, "Field6: "+fmt.Sprintf("%#v", this.Field6)+",\n")
+	s = append(s, "Field7: "+fmt.Sprintf("%#v", this.Field7)+",\n")
+	s = append(s, "Field8: "+fmt.Sprintf("%#v", this.Field8)+",\n")
+	s = append(s, "Field9: "+fmt.Sprintf("%#v", this.Field9)+",\n")
+	s = append(s, "Field10: "+fmt.Sprintf("%#v", this.Field10)+",\n")
+	s = append(s, "Field11: "+fmt.Sprintf("%#v", this.Field11)+",\n")
+	s = append(s, "Field12: "+fmt.Sprintf("%#v", this.Field12)+",\n")
+	s = append(s, "Field13: "+fmt.Sprintf("%#v", this.Field13)+",\n")
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *NinOptStruct3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 14)
+	s = append(s, "&fuzztests.NinOptStruct3{")
+	s = append(s, "Field1: "+fmt.Sprintf("%#v", this.Field1)+",\n")
+	s = append(s, "Field2: "+fmt.Sprintf("%#v", this.Field2)+",\n")
+	if this.Field3 != nil {
+		s = append(s, "Field3: "+fmt.Sprintf("%#v", this.Field3)+",\n")
+	}
+	if this.Field4 != nil {
+		s = append(s, "Field4: "+fmt.Sprintf("%#v", this.Field4)+",\n")
+	}
+	s = append(s, "Field6: "+fmt.Sprintf("%#v", this.Field6)+",\n")
+	s = append(s, "Field7: "+fmt.Sprintf("%#v", this.Field7)+",\n")
+	if this.Field8 != nil {
+		s = append(s, "Field8: "+fmt.Sprintf("%#v", this.Field8)+",\n")
+	}
+	s = append(s, "Field13: "+fmt.Sprintf("%#v", this.Field13)+",\n")
+	s = append(s, "Field14: "+fmt.Sprintf("%#v", this.Field14)+",\n")
+	s = append(s, "Field15: "+fmt.Sprintf("%#v", this.Field15)+",\n")
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *NinRepStruct3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 14)
+	s = append(s, "&fuzztests.NinRepStruct3{")
+	s = append(s, "Field1: "+fmt.Sprintf("%#v", this.Field1)+",\n")
+	s = append(s, "Field2: "+fmt.Sprintf("%#v", this.Field2)+",\n")
+	if this.Field3 != nil {
+		s = append(s, "Field3: "+fmt.Sprintf("%#v", this.Field3)+",\n")
+	}
+	if this.Field4 != nil {
+		s = append(s, "Field4: "+fmt.Sprintf("%#v", this.Field4)+",\n")
+	}
+	s = append(s, "Field6: "+fmt.Sprintf("%#v", this.Field6)+",\n")
+	s = append(s, "Field7: "+fmt.Sprintf("%#v", this.Field7)+",\n")
+	if this.Field8 != nil {
+		s = append(s, "Field8: "+fmt.Sprintf("%#v", this.Field8)+",\n")
+	}
+	s = append(s, "Field13: "+fmt.Sprintf("%#v", this.Field13)+",\n")
+	s = append(s, "Field14: "+fmt.Sprintf("%#v", this.Field14)+",\n")
+	s = append(s, "Field15: "+fmt.Sprintf("%#v", this.Field15)+",\n")
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *NinNestedStruct3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 6)
+	s = append(s, "&fuzztests.NinNestedStruct3{")
+	if this.Field1 != nil {
+		s = append(s, "Field1: "+fmt.Sprintf("%#v", this.Field1)+",\n")
+	}
+	if this.Field2 != nil {
+		s = append(s, "Field2: "+fmt.Sprintf("%#v", this.Field2)+",\n")
+	}
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *Nil3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 4)
+	s = append(s, "&fuzztests.Nil3{")
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *NestedDefinition3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 7)
+	s = append(s, "&fuzztests.NestedDefinition3{")
+	s = append(s, "Field1: "+fmt.Sprintf("%#v", this.Field1)+",\n")
+	if this.NNM != nil {
+		s = append(s, "NNM: "+fmt.Sprintf("%#v", this.NNM)+",\n")
+	}
+	if this.NM != nil {
+		s = append(s, "NM: "+fmt.Sprintf("%#v", this.NM)+",\n")
+	}
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *NestedDefinition3_NestedMessage3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 6)
+	s = append(s, "&fuzztests.NestedDefinition3_NestedMessage3{")
+	s = append(s, "NestedField1: "+fmt.Sprintf("%#v", this.NestedField1)+",\n")
+	if this.NNM != nil {
+		s = append(s, "NNM: "+fmt.Sprintf("%#v", this.NNM)+",\n")
+	}
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *NestedDefinition3_NestedMessage3_NestedNestedMsg3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 5)
+	s = append(s, "&fuzztests.NestedDefinition3_NestedMessage3_NestedNestedMsg3{")
+	s = append(s, "NestedNestedField1: "+fmt.Sprintf("%#v", this.NestedNestedField1)+",\n")
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *NestedScope3) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 6)
+	s = append(s, "&fuzztests.NestedScope3{")
+	if this.A != nil {
+		s = append(s, "A: "+fmt.Sprintf("%#v", this.A)+",\n")
+	}
+	if this.C != nil {
+		s = append(s, "C: "+fmt.Sprintf("%#v", this.C)+",\n")
+	}
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func valueToGoStringFuzz3(v interface{}, typ string) string {
+	rv := reflect.ValueOf(v)
+	if rv.IsNil() {
+		return "nil"
+	}
+	pv := reflect.Indirect(rv).Interface()
+	return fmt.Sprintf("func(v %v) *%v { return &v } ( %#v )", typ, typ, pv)
+}
+func extensionToGoStringFuzz3(e map[int32]github_com_gogo_protobuf_proto.Extension) string {
+	if e == nil {
+		return "nil"
+	}
+	s := "map[int32]proto.Extension{"
+	keys := make([]int, 0, len(e))
+	for k := range e {
+		keys = append(keys, int(k))
+	}
+	sort.Ints(keys)
+	ss := []string{}
+	for _, k := range keys {
+		ss = append(ss, strconv.Itoa(k)+": "+e[int32(k)].GoString())
+	}
+	s += strings.Join(ss, ",") + "}"
+	return s
+}
 func NewPopulatedNinOptNative3(r randyFuzz3, easy bool) *NinOptNative3 {
 	this := &NinOptNative3{}
 	this.Field1 = float64(r.Float64())
