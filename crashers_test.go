@@ -44,27 +44,27 @@ func Test_GolangNotIdempotent_21e44783af4a173d22718037577cde36ff826934(t *testin
 	Fuzz([]byte("\xed\x000\b00"))
 }
 
-func Test_NotEqual_2c7c1a727ad282aaae5b102dd7e4e463fae22dd5(t *testing.T) {
+func Test_GolangNotIdempotent_2c7c1a727ad282aaae5b102dd7e4e463fae22dd5(t *testing.T) {
 	defer catchPanic(t)
 	Fuzz([]byte("x0"))
 }
 
-func Test_NotEqual_4ea8d41dd8638b75b9b2051d8b5589efa4b907ea(t *testing.T) {
+func Test_GolangNotIdempotent_4ea8d41dd8638b75b9b2051d8b5589efa4b907ea(t *testing.T) {
 	defer catchPanic(t)
 	Fuzz([]byte("\t00000000100000000"))
 }
 
-func Test_NotEqual_da39a3ee5e6b4b0d3255bfef95601890afd80709(t *testing.T) {
+func Test_Pass_da39a3ee5e6b4b0d3255bfef95601890afd80709(t *testing.T) {
 	defer catchPanic(t)
 	Fuzz([]byte{})
 }
 
-func Test_NotEqual_dd0d7089506997514b9508d63816031b51a2f864(t *testing.T) {
+func Test_GolangNotIdempotent_dd0d7089506997514b9508d63816031b51a2f864(t *testing.T) {
 	defer catchPanic(t)
 	Fuzz([]byte("X0x0"))
 }
 
-func Test_NotEqual_e4666a670f042877c67a84473a71675ee0950a08(t *testing.T) {
+func Test_GolangNotIdempotent_e4666a670f042877c67a84473a71675ee0950a08(t *testing.T) {
 	defer catchPanic(t)
 	Fuzz([]byte("c4"))
 }

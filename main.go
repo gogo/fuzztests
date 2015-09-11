@@ -47,6 +47,32 @@ func debug(s string, i int, data []byte, err error) {
 	panic(err)
 }
 
+func golangassert(s string, i int, input []byte, msg goproto.Message) {
+	if err := goproto.Unmarshal(input, msg); err != nil {
+		debug(s+" unmarshal", i, input, err)
+	}
+	output, err := goproto.Marshal(msg)
+	if err != nil {
+		panic(err)
+	}
+	if !bytes.Equal(input, output) {
+		panic(fmt.Sprintf("%s is not idempotent input %#v output %#v", s, input, output))
+	}
+}
+
+func gogoassert(s string, i int, input []byte, msg gogoproto.Message) {
+	if err := gogoproto.Unmarshal(input, msg); err != nil {
+		debug(s+" unmarshal", i, input, err)
+	}
+	output, err := gogoproto.Marshal(msg)
+	if err != nil {
+		panic(err)
+	}
+	if !bytes.Equal(input, output) {
+		panic(fmt.Sprintf("%s is not idempotent input %#v output %#v", s, input, output))
+	}
+}
+
 func Fuzz(data []byte) int {
 	score := 0
 	for i, golangf := range golang.NewFuncs {
@@ -55,38 +81,10 @@ func Fuzz(data []byte) int {
 			continue
 		}
 		score = 1
-		data2, err := goproto.Marshal(golangpb)
-		if err != nil {
-			panic(err)
-		}
-		if !bytes.Equal(data, data2) {
-			panic("golang proto is not idempotent")
-		}
-		gofastpb := gofast.NewFuncs[i]()
-		if err := goproto.Unmarshal(data, gofastpb); err != nil {
-			debug("gofastpb unmarshal", i, data, err)
-		}
-		data3, err := goproto.Marshal(gofastpb)
-		if err != nil {
-			panic(err)
-		}
-		if !bytes.Equal(data, data3) {
-			panic("gofast proto is not idempotent")
-		}
-		if !goproto.Equal(golangpb, gofastpb) {
-			panic(fmt.Sprintf("[%d](%T) golangpb != gofastpb", i, golangpb))
-		}
-		gogopb := gogo.NewFuncs[i]()
-		if err := gogoproto.Unmarshal(data, gogopb); err != nil {
-			debug("gogopb unmarshal", i, data, err)
-		}
-		gogofastpb := gogofast.NewFuncs[i]()
-		if err := gogoproto.Unmarshal(data, gogofastpb); err != nil {
-			debug("gogofastpb unmarshal", i, data, err)
-		}
-		if !gogoproto.Equal(gogopb, gogofastpb) {
-			panic(fmt.Sprintf("[%d](%T) gogopb != gogofastpb", i, gogopb))
-		}
+		golangassert("golang", i, data, golang.NewFuncs[i]())
+		golangassert("gofast", i, data, gofast.NewFuncs[i]())
+		gogoassert("gogo", i, data, gogo.NewFuncs[i]())
+		gogoassert("gogofast", i, data, gogofast.NewFuncs[i]())
 	}
 	return score
 }
