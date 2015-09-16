@@ -81,7 +81,7 @@ type message interface {
 type marshalFunc func(message) ([]byte, error)
 type unmarshalFunc func([]byte, message) error
 
-func assert(s string, i int, input []byte, msg message, marshal marshalFunc, unmarshal unmarshalFunc) {
+func assert(s string, i int, input []byte, msg message, marshal marshalFunc, unmarshal unmarshalFunc) []byte {
 	if err := unmarshal(input, msg); err != nil {
 		debug(s+" unmarshal1", i, input, err)
 	}
@@ -118,6 +118,7 @@ func assert(s string, i int, input []byte, msg message, marshal marshalFunc, unm
 	if !bytes.Equal(output, output2) {
 		panic(fmt.Sprintf("[%d](%T):%s is not idempotent input %#v output %#v", i, msg, s, output, output2))
 	}
+	return output
 }
 
 func gogomarshal(msg message) ([]byte, error) {
@@ -144,10 +145,24 @@ func Fuzz(data []byte) int {
 			continue
 		}
 		score = 1
-		assert("gogofast", i, data, gogofast.NewFuncs[i](), gogomarshal, gogounmarshal)
-		assert("gofast", i, data, gofast.NewFuncs[i](), gomarshal, gounmarshal)
-		assert("golang", i, data, golang.NewFuncs[i](), gomarshal, gounmarshal)
-		assert("gogo", i, data, gogo.NewFuncs[i](), gogomarshal, gogounmarshal)
+		gogofastout := assert("gogofast", i, data, gogofast.NewFuncs[i](), gogomarshal, gogounmarshal)
+		gofastout := assert("gofast", i, data, gofast.NewFuncs[i](), gomarshal, gounmarshal)
+		golangout := assert("golang", i, data, golang.NewFuncs[i](), gomarshal, gounmarshal)
+		gogoout := assert("gogo", i, data, gogo.NewFuncs[i](), gogomarshal, gogounmarshal)
+		if !bytes.Equal(gogofastout, gofastout) {
+			panic(fmt.Sprintf("[%d](%T) gogofast != gofast %#v != %#v", i, testpb, gogofastout, gofastout))
+		}
+		if !bytes.Equal(gogofastout, golangout) {
+			if len(golangout) < len(gogofastout) {
+				fmt.Printf("golang has LESS bytes than gogofastout\n")
+			} else if len(golangout) > len(gogofastout) {
+				fmt.Printf("golang has MORE bytes than gogofastout\n")
+			}
+			panic(fmt.Sprintf("[%d](%T) gogofast != golang %#v != %#v", i, testpb, gogofastout, golangout))
+		}
+		if !bytes.Equal(gogofastout, gogoout) {
+			panic(fmt.Sprintf("[%d](%T) gogofast != gogo %#v != %#v", i, testpb, gogofastout, gogoout))
+		}
 	}
 	return score
 }
