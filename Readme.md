@@ -7,7 +7,7 @@ If you would like to fuzz a new message type simply:
   - run > make regenerate
   - run > make fuzz
 
-Enums are not supported, since multiple versions of the same protocol buffer messages are generated and the proto libraries don't support multiple enums with the same name.
+Enums and Extensions are not supported, since multiple versions of the same protocol buffer messages are generated and the proto libraries don't support multiple types with the same name. 
 
 Dependencies:
   - github.com/gogo/protobuf

@@ -2500,8 +2500,12 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -2555,6 +2559,9 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			}
 			var v int32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2572,6 +2579,9 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			}
 			var v int64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2589,6 +2599,9 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			}
 			var v uint32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2606,6 +2619,9 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			}
 			var v uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2623,6 +2639,9 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			}
 			var v int32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2641,6 +2660,9 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			}
 			var v uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2724,6 +2746,9 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			}
 			var v int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2742,6 +2767,9 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2769,6 +2797,9 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			}
 			var byteLen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2789,15 +2820,7 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 			m.Field15 = append([]byte{}, data[iNdEx:postIndex]...)
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -2813,14 +2836,21 @@ func (m *NinOptNative) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NinRepNative) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -2874,6 +2904,9 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			}
 			var v int32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2891,6 +2924,9 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			}
 			var v int64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2908,6 +2944,9 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			}
 			var v uint32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2925,6 +2964,9 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			}
 			var v uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2942,6 +2984,9 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			}
 			var v int32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -2960,6 +3005,9 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			}
 			var v uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -3042,6 +3090,9 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			}
 			var v int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -3059,6 +3110,9 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -3085,6 +3139,9 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			}
 			var byteLen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -3106,15 +3163,7 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 			copy(m.Field15[len(m.Field15)-1], data[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -3130,14 +3179,21 @@ func (m *NinRepNative) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -3155,6 +3211,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3212,6 +3271,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3261,6 +3323,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3281,6 +3346,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 				for iNdEx < postIndex {
 					var v int32
 					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowFuzz2
+						}
 						if iNdEx >= l {
 							return io.ErrUnexpectedEOF
 						}
@@ -3296,6 +3364,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			} else if wireType == 0 {
 				var v int32
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3314,6 +3385,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3334,6 +3408,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 				for iNdEx < postIndex {
 					var v int64
 					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowFuzz2
+						}
 						if iNdEx >= l {
 							return io.ErrUnexpectedEOF
 						}
@@ -3349,6 +3426,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			} else if wireType == 0 {
 				var v int64
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3367,6 +3447,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3387,6 +3470,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 				for iNdEx < postIndex {
 					var v uint32
 					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowFuzz2
+						}
 						if iNdEx >= l {
 							return io.ErrUnexpectedEOF
 						}
@@ -3402,6 +3488,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			} else if wireType == 0 {
 				var v uint32
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3420,6 +3509,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3440,6 +3532,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 				for iNdEx < postIndex {
 					var v uint64
 					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowFuzz2
+						}
 						if iNdEx >= l {
 							return io.ErrUnexpectedEOF
 						}
@@ -3455,6 +3550,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			} else if wireType == 0 {
 				var v uint64
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3473,6 +3571,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3493,6 +3594,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 				for iNdEx < postIndex {
 					var v int32
 					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowFuzz2
+						}
 						if iNdEx >= l {
 							return io.ErrUnexpectedEOF
 						}
@@ -3509,6 +3613,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			} else if wireType == 0 {
 				var v int32
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3528,6 +3635,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3548,6 +3658,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 				for iNdEx < postIndex {
 					var v uint64
 					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowFuzz2
+						}
 						if iNdEx >= l {
 							return io.ErrUnexpectedEOF
 						}
@@ -3564,6 +3677,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			} else if wireType == 0 {
 				var v uint64
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3583,6 +3699,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3630,6 +3749,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3677,6 +3799,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3732,6 +3857,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3787,6 +3915,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			if wireType == 2 {
 				var packedLen int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3807,6 +3938,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 				for iNdEx < postIndex {
 					var v int
 					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowFuzz2
+						}
 						if iNdEx >= l {
 							return io.ErrUnexpectedEOF
 						}
@@ -3822,6 +3956,9 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 			} else if wireType == 0 {
 				var v int
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
@@ -3837,15 +3974,7 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 				return fmt.Errorf("proto: wrong wireType = %d for field Field13", wireType)
 			}
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -3861,14 +3990,21 @@ func (m *NinRepPackedNative) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NinOptStruct) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -3922,6 +4058,9 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -3952,6 +4091,9 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -3982,6 +4124,9 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 			}
 			var v uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -3999,6 +4144,9 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 			}
 			var v int32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4017,6 +4165,9 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4047,6 +4198,9 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 			}
 			var v int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4065,6 +4219,9 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4092,6 +4249,9 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 			}
 			var byteLen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4112,15 +4272,7 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 			m.Field15 = append([]byte{}, data[iNdEx:postIndex]...)
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -4136,14 +4288,21 @@ func (m *NinOptStruct) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NinRepStruct) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -4197,6 +4356,9 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4225,6 +4387,9 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4253,6 +4418,9 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 			}
 			var v uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4270,6 +4438,9 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 			}
 			var v int32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4288,6 +4459,9 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4316,6 +4490,9 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 			}
 			var v int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4333,6 +4510,9 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4359,6 +4539,9 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 			}
 			var byteLen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4380,15 +4563,7 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 			copy(m.Field15[len(m.Field15)-1], data[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -4404,14 +4579,21 @@ func (m *NinRepStruct) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NinNestedStruct) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -4431,6 +4613,9 @@ func (m *NinNestedStruct) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4461,6 +4646,9 @@ func (m *NinNestedStruct) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4484,15 +4672,7 @@ func (m *NinNestedStruct) Unmarshal(data []byte) error {
 			}
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -4508,14 +4688,21 @@ func (m *NinNestedStruct) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *Nil) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -4529,15 +4716,7 @@ func (m *Nil) Unmarshal(data []byte) error {
 		fieldNum := int32(wire >> 3)
 		switch fieldNum {
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -4553,14 +4732,21 @@ func (m *Nil) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NestedDefinition) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -4580,6 +4766,9 @@ func (m *NestedDefinition) Unmarshal(data []byte) error {
 			}
 			var v int64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4597,6 +4786,9 @@ func (m *NestedDefinition) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4627,6 +4819,9 @@ func (m *NestedDefinition) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4652,15 +4847,7 @@ func (m *NestedDefinition) Unmarshal(data []byte) error {
 			}
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -4676,14 +4863,21 @@ func (m *NestedDefinition) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NestedDefinition_NestedMessage) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -4721,6 +4915,9 @@ func (m *NestedDefinition_NestedMessage) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4746,15 +4943,7 @@ func (m *NestedDefinition_NestedMessage) Unmarshal(data []byte) error {
 			}
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -4770,14 +4959,21 @@ func (m *NestedDefinition_NestedMessage) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NestedDefinition_NestedMessage_NestedNestedMsg) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -4797,6 +4993,9 @@ func (m *NestedDefinition_NestedMessage_NestedNestedMsg) Unmarshal(data []byte) 
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4819,15 +5018,7 @@ func (m *NestedDefinition_NestedMessage_NestedNestedMsg) Unmarshal(data []byte) 
 			m.NestedNestedField1 = &s
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -4843,14 +5034,21 @@ func (m *NestedDefinition_NestedMessage_NestedNestedMsg) Unmarshal(data []byte) 
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NestedScope) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -4870,6 +5068,9 @@ func (m *NestedScope) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4900,6 +5101,9 @@ func (m *NestedScope) Unmarshal(data []byte) error {
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -4925,15 +5129,7 @@ func (m *NestedScope) Unmarshal(data []byte) error {
 			}
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -4949,14 +5145,21 @@ func (m *NestedScope) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
+		preIndex := iNdEx
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
@@ -5010,6 +5213,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			}
 			var v int32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -5027,6 +5233,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			}
 			var v int64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -5044,6 +5253,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			}
 			var v uint32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -5061,6 +5273,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			}
 			var v uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -5078,6 +5293,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			}
 			var v int32
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -5096,6 +5314,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			}
 			var v uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -5179,6 +5400,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			}
 			var v int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -5197,6 +5421,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -5224,6 +5451,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			}
 			var byteLen int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
@@ -5244,15 +5474,7 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 			m.Field15 = append([]byte{}, data[iNdEx:postIndex]...)
 			iNdEx = postIndex
 		default:
-			var sizeOfWire int
-			for {
-				sizeOfWire++
-				wire >>= 7
-				if wire == 0 {
-					break
-				}
-			}
-			iNdEx -= sizeOfWire
+			iNdEx = preIndex
 			skippy, err := skipFuzz2(data[iNdEx:])
 			if err != nil {
 				return err
@@ -5268,6 +5490,9 @@ func (m *NinOptNativeDefault) Unmarshal(data []byte) error {
 		}
 	}
 
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
 	return nil
 }
 func skipFuzz2(data []byte) (n int, err error) {
@@ -5276,6 +5501,9 @@ func skipFuzz2(data []byte) (n int, err error) {
 	for iNdEx < l {
 		var wire uint64
 		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return 0, ErrIntOverflowFuzz2
+			}
 			if iNdEx >= l {
 				return 0, io.ErrUnexpectedEOF
 			}
@@ -5305,6 +5533,9 @@ func skipFuzz2(data []byte) (n int, err error) {
 		case 2:
 			var length int
 			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return 0, ErrIntOverflowFuzz2
+				}
 				if iNdEx >= l {
 					return 0, io.ErrUnexpectedEOF
 				}
@@ -5325,6 +5556,9 @@ func skipFuzz2(data []byte) (n int, err error) {
 				var innerWire uint64
 				var start int = iNdEx
 				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return 0, ErrIntOverflowFuzz2
+					}
 					if iNdEx >= l {
 						return 0, io.ErrUnexpectedEOF
 					}
@@ -5360,4 +5594,5 @@ func skipFuzz2(data []byte) (n int, err error) {
 
 var (
 	ErrInvalidLengthFuzz2 = fmt.Errorf("proto: negative length found during unmarshaling")
+	ErrIntOverflowFuzz2   = fmt.Errorf("proto: integer overflow")
 )

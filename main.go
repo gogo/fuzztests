@@ -29,13 +29,17 @@ package fuzztests
 import (
 	"bytes"
 	"fmt"
+	"github.com/gogo/fieldpath"
 	gogopop "github.com/gogo/fuzztests/gengogofuzztests/gogopop"
 	gofast "github.com/gogo/fuzztests/gofast"
-	gogo "github.com/gogo/fuzztests/gogo"
+	//gogo "github.com/gogo/fuzztests/gogo"
 	gogofast "github.com/gogo/fuzztests/gogofast"
 	golang "github.com/gogo/fuzztests/golang"
 	gogoproto "github.com/gogo/protobuf/proto"
+	descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
 	goproto "github.com/golang/protobuf/proto"
+	"reflect"
+	"strings"
 )
 
 func debug(s string, i int, data []byte, err error) {
@@ -47,52 +51,103 @@ func debug(s string, i int, data []byte, err error) {
 	panic(err)
 }
 
-func golangassert(s string, i int, input []byte, msg goproto.Message) {
-	if err := goproto.Unmarshal(input, msg); err != nil {
-		debug(s+" unmarshal", i, input, err)
+//proto3 does not keep the XXX_unrecognized bytes
+func hasUnrecognized(msg interface{}) bool {
+	v := reflect.TypeOf(msg).Elem()
+	_, ok := v.FieldByName("XXX_unrecognized")
+	return ok
+}
+
+//packed fields are not idempotent
+//TODO make this function recursive
+func hasPacked(msg interface{}) bool {
+	v := reflect.TypeOf(msg).Elem()
+	num := v.NumField()
+	for i := 0; i < num; i++ {
+		f := v.Field(i)
+		if strings.Contains(string(f.Tag), "packed") {
+			return true
+		}
 	}
-	output, err := goproto.Marshal(msg)
+	return false
+}
+
+type message interface {
+	Reset()
+	String() string
+	ProtoMessage()
+}
+
+type marshalFunc func(message) ([]byte, error)
+type unmarshalFunc func([]byte, message) error
+
+func assert(s string, i int, input []byte, msg message, marshal marshalFunc, unmarshal unmarshalFunc) {
+	if err := unmarshal(input, msg); err != nil {
+		debug(s+" unmarshal1", i, input, err)
+	}
+	output, err := marshal(msg)
 	if err != nil {
 		panic(err)
 	}
-	if !bytes.Equal(input, output) {
-		panic(fmt.Sprintf("%s is not idempotent input %#v output %#v", s, input, output))
+	//check the length whenever it is possible, since I found most of the bugs this way.
+	if hasUnrecognized(msg) && !hasPacked(msg) {
+		s := reflect.TypeOf(msg).Elem()
+		pkgPath := s.PkgPath()
+		pkgPaths := strings.Split(pkgPath, "/")
+		pkgName := pkgPaths[len(pkgPaths)-1]
+		msgName := s.Name()
+		descriptorSet := gogopop.NewFuncs[i]().(interface {
+			Description() *descriptor.FileDescriptorSet
+		}).Description()
+		//if a field was merged then the length would have changed.
+		if err := fieldpath.NoMerge(input, descriptorSet, pkgName, msgName); err == nil {
+			//only length is checked since field orders can change
+			if len(input) != len(output) {
+				panic(fmt.Sprintf("[%d](%T):%s length has changed input %#v output %#v", i, msg, s, input, output))
+			}
+		}
+	}
+	msg.Reset()
+	if err := unmarshal(output, msg); err != nil {
+		debug(s+" unmarshal2", i, output, err)
+	}
+	output2, err := marshal(msg)
+	if err != nil {
+		panic(err)
+	}
+	if !bytes.Equal(output, output2) {
+		panic(fmt.Sprintf("[%d](%T):%s is not idempotent input %#v output %#v", i, msg, s, output, output2))
 	}
 }
 
-func gogoassert(s string, i int, input []byte, msg gogoproto.Message) {
-	if err := gogoproto.Unmarshal(input, msg); err != nil {
-		debug(s+" unmarshal", i, input, err)
-	}
-	output, err := gogoproto.Marshal(msg)
-	if err != nil {
-		panic(err)
-	}
-	if !bytes.Equal(input, output) {
-		panic(fmt.Sprintf("%s is not idempotent input %#v output %#v", s, input, output))
-	}
+func gogomarshal(msg message) ([]byte, error) {
+	return gogoproto.Marshal(msg)
+}
+
+func gomarshal(msg message) ([]byte, error) {
+	return goproto.Marshal(msg)
+}
+
+func gogounmarshal(buf []byte, msg message) error {
+	return gogoproto.Unmarshal(buf, msg)
+}
+
+func gounmarshal(buf []byte, msg message) error {
+	return goproto.Unmarshal(buf, msg)
 }
 
 func Fuzz(data []byte) int {
 	score := 0
-	for i, golangf := range golang.NewFuncs {
-		golangpb := golangf()
-		if err := goproto.Unmarshal(data, golangpb); err != nil {
-			continue
-		}
-		output, err := goproto.Marshal(golangpb)
-		if err != nil {
-			panic(err)
-		}
-		if !bytes.Equal(data, output) {
-			//Lets ignore the ones where golang/protobuf is not idempotent, since this is actually a test for gogoprotobuf and not golang/protobuf
+	for i := range golang.NewFuncs {
+		testpb := gogofast.NewFuncs[i]()
+		if err := gogoproto.Unmarshal(data, testpb); err != nil {
 			continue
 		}
 		score = 1
-		golangassert("golang", i, data, golang.NewFuncs[i]())
-		golangassert("gofast", i, data, gofast.NewFuncs[i]())
-		gogoassert("gogo", i, data, gogo.NewFuncs[i]())
-		gogoassert("gogofast", i, data, gogofast.NewFuncs[i]())
+		assert("gogofast", i, data, gogofast.NewFuncs[i](), gogomarshal, gogounmarshal)
+		assert("gofast", i, data, gofast.NewFuncs[i](), gomarshal, gounmarshal)
+		//assert("golang", i, data, golang.NewFuncs[i](), gomarshal, gounmarshal)
+		//assert("gogo", i, data, gogo.NewFuncs[i](), gogomarshal, gogounmarshal)
 	}
 	return score
 }

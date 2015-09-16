@@ -1,4 +1,5 @@
 fuzz:
+	rm *.zip || true
 	go install github.com/dvyukov/go-fuzz/go-fuzz-build
 	go-fuzz-build github.com/gogo/fuzztests
 	go install github.com/dvyukov/go-fuzz/go-fuzz

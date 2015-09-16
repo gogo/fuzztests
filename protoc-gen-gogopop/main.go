@@ -40,6 +40,7 @@ func main() {
 	files = vanity.FilterFiles(files, vanity.NotInPackageGoogleProtobuf)
 	vanity.ForEachFile(files, vanity.TurnOnPopulateAll)
 	vanity.ForEachFile(files, vanity.TurnOnGoStringAll)
+	vanity.ForEachFile(files, vanity.TurnOnDescriptionAll)
 	resp := command.Generate(req)
 
 	msgs := []string{}

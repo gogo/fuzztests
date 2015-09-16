@@ -36,6 +36,8 @@ import proto "github.com/gogo/protobuf/proto"
 import fmt "fmt"
 import math "math"
 
+import google_protobuf "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
+
 import strings "strings"
 import github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
 import sort "sort"
@@ -866,6 +868,1481 @@ func (m *NinOptNativeDefault) GetField15() []byte {
 	return nil
 }
 
+func (this *NinOptNative) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NinRepNative) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NinRepPackedNative) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NinOptStruct) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NinRepStruct) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NinNestedStruct) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *Nil) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NestedDefinition) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NestedDefinition_NestedMessage) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NestedDefinition_NestedMessage_NestedNestedMsg) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NestedScope) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func (this *NinOptNativeDefault) Description() (desc *google_protobuf.FileDescriptorSet) {
+	return Fuzz2Description()
+}
+func Fuzz2Description() (desc *google_protobuf.FileDescriptorSet) {
+	return &google_protobuf.FileDescriptorSet{File: []*google_protobuf.FileDescriptorProto{{Name: func(v string) *string { return &v }("fuzz2.proto"),
+		Package: func(v string) *string { return &v }("fuzztests"),
+		MessageType: []*google_protobuf.DescriptorProto{{Name: func(v string) *string { return &v }("NinOptNative"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(5),
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(3),
+			}, {Name: func(v string) *string { return &v }("Field5"),
+				Number: func(v int32) *int32 { return &v }(5),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(13),
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(18),
+			}, {Name: func(v string) *string { return &v }("Field9"),
+				Number: func(v int32) *int32 { return &v }(9),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(7),
+			}, {Name: func(v string) *string { return &v }("Field10"),
+				Number: func(v int32) *int32 { return &v }(10),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(15),
+			}, {Name: func(v string) *string { return &v }("Field11"),
+				Number: func(v int32) *int32 { return &v }(11),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(6),
+			}, {Name: func(v string) *string { return &v }("Field12"),
+				Number: func(v int32) *int32 { return &v }(12),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(16),
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+			}, {Name: func(v string) *string { return &v }("Field14"),
+				Number: func(v int32) *int32 { return &v }(14),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(9),
+			}, {Name: func(v string) *string { return &v }("Field15"),
+				Number: func(v int32) *int32 { return &v }(15),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(12),
+			}},
+		}, {Name: func(v string) *string { return &v }("NinRepNative"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(5),
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(3),
+			}, {Name: func(v string) *string { return &v }("Field5"),
+				Number: func(v int32) *int32 { return &v }(5),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(13),
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(18),
+			}, {Name: func(v string) *string { return &v }("Field9"),
+				Number: func(v int32) *int32 { return &v }(9),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(7),
+			}, {Name: func(v string) *string { return &v }("Field10"),
+				Number: func(v int32) *int32 { return &v }(10),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(15),
+			}, {Name: func(v string) *string { return &v }("Field11"),
+				Number: func(v int32) *int32 { return &v }(11),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(6),
+			}, {Name: func(v string) *string { return &v }("Field12"),
+				Number: func(v int32) *int32 { return &v }(12),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(16),
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+			}, {Name: func(v string) *string { return &v }("Field14"),
+				Number: func(v int32) *int32 { return &v }(14),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(9),
+			}, {Name: func(v string) *string { return &v }("Field15"),
+				Number: func(v int32) *int32 { return &v }(15),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(12),
+			}},
+		}, {Name: func(v string) *string { return &v }("NinRepPackedNative"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(5),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(3),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field5"),
+				Number: func(v int32) *int32 { return &v }(5),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(13),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(18),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field9"),
+				Number: func(v int32) *int32 { return &v }(9),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(7),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field10"),
+				Number: func(v int32) *int32 { return &v }(10),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(15),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field11"),
+				Number: func(v int32) *int32 { return &v }(11),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(6),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field12"),
+				Number: func(v int32) *int32 { return &v }(12),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(16),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
+					XXX_extensions: map[int32]proto.Extension{},
+				},
+			}},
+		}, {Name: func(v string) *string { return &v }("NinOptStruct"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative"),
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative"),
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative"),
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+			}, {Name: func(v string) *string { return &v }("Field14"),
+				Number: func(v int32) *int32 { return &v }(14),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(9),
+			}, {Name: func(v string) *string { return &v }("Field15"),
+				Number: func(v int32) *int32 { return &v }(15),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(12),
+			}},
+		}, {Name: func(v string) *string { return &v }("NinRepStruct"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative"),
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative"),
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative"),
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+			}, {Name: func(v string) *string { return &v }("Field14"),
+				Number: func(v int32) *int32 { return &v }(14),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(9),
+			}, {Name: func(v string) *string { return &v }("Field15"),
+				Number: func(v int32) *int32 { return &v }(15),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(12),
+			}},
+		}, {Name: func(v string) *string { return &v }("NinNestedStruct"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptStruct"),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinRepStruct"),
+			}},
+		}, {Name: func(v string) *string { return &v }("Nil")}, {Name: func(v string) *string { return &v }("NestedDefinition"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(3),
+			}, {Name: func(v string) *string { return &v }("NNM"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition.NestedMessage.NestedNestedMsg"),
+			}, {Name: func(v string) *string { return &v }("NM"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition.NestedMessage"),
+			}},
+			NestedType: []*google_protobuf.DescriptorProto{{Name: func(v string) *string { return &v }("NestedMessage"),
+				Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("NestedField1"),
+					Number: func(v int32) *int32 { return &v }(1),
+					Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+						return &v
+					}(1),
+					Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+						return &v
+					}(6),
+				}, {Name: func(v string) *string { return &v }("NNM"),
+					Number: func(v int32) *int32 { return &v }(2),
+					Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+						return &v
+					}(1),
+					Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+						return &v
+					}(11),
+					TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition.NestedMessage.NestedNestedMsg"),
+				}},
+				NestedType: []*google_protobuf.DescriptorProto{{Name: func(v string) *string { return &v }("NestedNestedMsg"),
+					Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("NestedNestedField1"),
+						Number: func(v int32) *int32 { return &v }(10),
+						Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+							return &v
+						}(1),
+						Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+							return &v
+						}(9),
+					}},
+				}},
+			}},
+		}, {Name: func(v string) *string { return &v }("NestedScope"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("A"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition.NestedMessage.NestedNestedMsg"),
+			}, {Name: func(v string) *string { return &v }("C"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition.NestedMessage"),
+			}},
+		}, {Name: func(v string) *string { return &v }("NinOptNativeDefault"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+				DefaultValue: func(v string) *string { return &v }("1234.1234"),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+				DefaultValue: func(v string) *string { return &v }("1234.1234"),
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(5),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(3),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field5"),
+				Number: func(v int32) *int32 { return &v }(5),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(13),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(18),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field9"),
+				Number: func(v int32) *int32 { return &v }(9),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(7),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field10"),
+				Number: func(v int32) *int32 { return &v }(10),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(15),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field11"),
+				Number: func(v int32) *int32 { return &v }(11),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(6),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field12"),
+				Number: func(v int32) *int32 { return &v }(12),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(16),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+				DefaultValue: func(v string) *string { return &v }("true"),
+			}, {Name: func(v string) *string { return &v }("Field14"),
+				Number: func(v int32) *int32 { return &v }(14),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(9),
+				DefaultValue: func(v string) *string { return &v }("1234"),
+			}, {Name: func(v string) *string { return &v }("Field15"),
+				Number: func(v int32) *int32 { return &v }(15),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(12),
+			}},
+		}},
+		Options: &google_protobuf.FileOptions{XXX_extensions: map[int32]proto.Extension{63006: proto.NewExtension([]byte{0xf0, 0xe1, 0x1e, 0x1}), 63007: proto.NewExtension([]byte{0xf8, 0xe1, 0x1e, 0x1}), 63014: proto.NewExtension([]byte{0xb0, 0xe2, 0x1e, 0x1})}},
+	}, {Name: func(v string) *string { return &v }("fuzz3.proto"),
+		Package: func(v string) *string { return &v }("fuzztests"),
+		MessageType: []*google_protobuf.DescriptorProto{{Name: func(v string) *string { return &v }("NinOptNative3"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(5),
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(3),
+			}, {Name: func(v string) *string { return &v }("Field5"),
+				Number: func(v int32) *int32 { return &v }(5),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(13),
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(18),
+			}, {Name: func(v string) *string { return &v }("Field9"),
+				Number: func(v int32) *int32 { return &v }(9),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(7),
+			}, {Name: func(v string) *string { return &v }("Field10"),
+				Number: func(v int32) *int32 { return &v }(10),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(15),
+			}, {Name: func(v string) *string { return &v }("Field11"),
+				Number: func(v int32) *int32 { return &v }(11),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(6),
+			}, {Name: func(v string) *string { return &v }("Field12"),
+				Number: func(v int32) *int32 { return &v }(12),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(16),
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+			}, {Name: func(v string) *string { return &v }("Field14"),
+				Number: func(v int32) *int32 { return &v }(14),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(9),
+			}, {Name: func(v string) *string { return &v }("Field15"),
+				Number: func(v int32) *int32 { return &v }(15),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(12),
+			}},
+		}, {Name: func(v string) *string { return &v }("NinRepNative3"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(5),
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(3),
+			}, {Name: func(v string) *string { return &v }("Field5"),
+				Number: func(v int32) *int32 { return &v }(5),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(13),
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(18),
+			}, {Name: func(v string) *string { return &v }("Field9"),
+				Number: func(v int32) *int32 { return &v }(9),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(7),
+			}, {Name: func(v string) *string { return &v }("Field10"),
+				Number: func(v int32) *int32 { return &v }(10),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(15),
+			}, {Name: func(v string) *string { return &v }("Field11"),
+				Number: func(v int32) *int32 { return &v }(11),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(6),
+			}, {Name: func(v string) *string { return &v }("Field12"),
+				Number: func(v int32) *int32 { return &v }(12),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(16),
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+			}, {Name: func(v string) *string { return &v }("Field14"),
+				Number: func(v int32) *int32 { return &v }(14),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(9),
+			}, {Name: func(v string) *string { return &v }("Field15"),
+				Number: func(v int32) *int32 { return &v }(15),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(12),
+			}},
+		}, {Name: func(v string) *string { return &v }("NinRepPackedNative3"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(5),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(3),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field5"),
+				Number: func(v int32) *int32 { return &v }(5),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(13),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(18),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field9"),
+				Number: func(v int32) *int32 { return &v }(9),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(7),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field10"),
+				Number: func(v int32) *int32 { return &v }(10),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(15),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field11"),
+				Number: func(v int32) *int32 { return &v }(11),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(6),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field12"),
+				Number: func(v int32) *int32 { return &v }(12),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(16),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
+			}},
+		}, {Name: func(v string) *string { return &v }("NinOptStruct3"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative3"),
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative3"),
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative3"),
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+			}, {Name: func(v string) *string { return &v }("Field14"),
+				Number: func(v int32) *int32 { return &v }(14),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(9),
+			}, {Name: func(v string) *string { return &v }("Field15"),
+				Number: func(v int32) *int32 { return &v }(15),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(12),
+			}},
+		}, {Name: func(v string) *string { return &v }("NinRepStruct3"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(1),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(2),
+			}, {Name: func(v string) *string { return &v }("Field3"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative3"),
+			}, {Name: func(v string) *string { return &v }("Field4"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative3"),
+			}, {Name: func(v string) *string { return &v }("Field6"),
+				Number: func(v int32) *int32 { return &v }(6),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(4),
+			}, {Name: func(v string) *string { return &v }("Field7"),
+				Number: func(v int32) *int32 { return &v }(7),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(17),
+			}, {Name: func(v string) *string { return &v }("Field8"),
+				Number: func(v int32) *int32 { return &v }(8),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptNative3"),
+			}, {Name: func(v string) *string { return &v }("Field13"),
+				Number: func(v int32) *int32 { return &v }(13),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(8),
+			}, {Name: func(v string) *string { return &v }("Field14"),
+				Number: func(v int32) *int32 { return &v }(14),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(9),
+			}, {Name: func(v string) *string { return &v }("Field15"),
+				Number: func(v int32) *int32 { return &v }(15),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(12),
+			}},
+		}, {Name: func(v string) *string { return &v }("NinNestedStruct3"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinOptStruct3"),
+			}, {Name: func(v string) *string { return &v }("Field2"),
+				Number: func(v int32) *int32 { return &v }(2),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(3),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NinRepStruct3"),
+			}},
+		}, {Name: func(v string) *string { return &v }("Nil3")}, {Name: func(v string) *string { return &v }("NestedDefinition3"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(3),
+			}, {Name: func(v string) *string { return &v }("NNM"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition3.NestedMessage3.NestedNestedMsg3"),
+			}, {Name: func(v string) *string { return &v }("NM"),
+				Number: func(v int32) *int32 { return &v }(4),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition3.NestedMessage3"),
+			}},
+			NestedType: []*google_protobuf.DescriptorProto{{Name: func(v string) *string { return &v }("NestedMessage3"),
+				Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("NestedField1"),
+					Number: func(v int32) *int32 { return &v }(1),
+					Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+						return &v
+					}(1),
+					Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+						return &v
+					}(6),
+				}, {Name: func(v string) *string { return &v }("NNM"),
+					Number: func(v int32) *int32 { return &v }(2),
+					Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+						return &v
+					}(1),
+					Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+						return &v
+					}(11),
+					TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition3.NestedMessage3.NestedNestedMsg3"),
+				}},
+				NestedType: []*google_protobuf.DescriptorProto{{Name: func(v string) *string { return &v }("NestedNestedMsg3"),
+					Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("NestedNestedField1"),
+						Number: func(v int32) *int32 { return &v }(10),
+						Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+							return &v
+						}(1),
+						Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+							return &v
+						}(9),
+					}},
+				}},
+			}},
+		}, {Name: func(v string) *string { return &v }("NestedScope3"),
+			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("A"),
+				Number: func(v int32) *int32 { return &v }(1),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition3.NestedMessage3.NestedNestedMsg3"),
+			}, {Name: func(v string) *string { return &v }("C"),
+				Number: func(v int32) *int32 { return &v }(3),
+				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
+					return &v
+				}(1),
+				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
+					return &v
+				}(11),
+				TypeName: func(v string) *string { return &v }(".fuzztests.NestedDefinition3.NestedMessage3"),
+			}},
+		}},
+		Options: &google_protobuf.FileOptions{XXX_extensions: map[int32]proto.Extension{63006: proto.NewExtension([]byte{0xf0, 0xe1, 0x1e, 0x1}), 63007: proto.NewExtension([]byte{0xf8, 0xe1, 0x1e, 0x1}), 63014: proto.NewExtension([]byte{0xb0, 0xe2, 0x1e, 0x1})}},
+		Syntax:  func(v string) *string { return &v }("proto3"),
+	}},
+	}
+}
 func (this *NinOptNative) GoString() string {
 	if this == nil {
 		return "nil"
