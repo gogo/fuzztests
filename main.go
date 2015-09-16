@@ -32,7 +32,7 @@ import (
 	"github.com/gogo/fieldpath"
 	gogopop "github.com/gogo/fuzztests/gengogofuzztests/gogopop"
 	gofast "github.com/gogo/fuzztests/gofast"
-	//gogo "github.com/gogo/fuzztests/gogo"
+	gogo "github.com/gogo/fuzztests/gogo"
 	gogofast "github.com/gogo/fuzztests/gogofast"
 	golang "github.com/gogo/fuzztests/golang"
 	gogoproto "github.com/gogo/protobuf/proto"
@@ -146,8 +146,8 @@ func Fuzz(data []byte) int {
 		score = 1
 		assert("gogofast", i, data, gogofast.NewFuncs[i](), gogomarshal, gogounmarshal)
 		assert("gofast", i, data, gofast.NewFuncs[i](), gomarshal, gounmarshal)
-		//assert("golang", i, data, golang.NewFuncs[i](), gomarshal, gounmarshal)
-		//assert("gogo", i, data, gogo.NewFuncs[i](), gogomarshal, gogounmarshal)
+		assert("golang", i, data, golang.NewFuncs[i](), gomarshal, gounmarshal)
+		assert("gogo", i, data, gogo.NewFuncs[i](), gogomarshal, gogounmarshal)
 	}
 	return score
 }
