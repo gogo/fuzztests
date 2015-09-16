@@ -12,7 +12,6 @@ It is generated from these files:
 It has these top-level messages:
 	NinOptNative
 	NinRepNative
-	NinRepPackedNative
 	NinOptStruct
 	NinRepStruct
 	NinNestedStruct
@@ -22,7 +21,6 @@ It has these top-level messages:
 	NinOptNativeDefault
 	NinOptNative3
 	NinRepNative3
-	NinRepPackedNative3
 	NinOptStruct3
 	NinRepStruct3
 	NinNestedStruct3
@@ -301,118 +299,6 @@ func (m *NinRepNative) GetField14() []string {
 func (m *NinRepNative) GetField15() [][]byte {
 	if m != nil {
 		return m.Field15
-	}
-	return nil
-}
-
-type NinRepPackedNative struct {
-	Field1           []float64 `protobuf:"fixed64,1,rep,packed,name=Field1" json:"Field1,omitempty"`
-	Field2           []float32 `protobuf:"fixed32,2,rep,packed,name=Field2" json:"Field2,omitempty"`
-	Field3           []int32   `protobuf:"varint,3,rep,packed,name=Field3" json:"Field3,omitempty"`
-	Field4           []int64   `protobuf:"varint,4,rep,packed,name=Field4" json:"Field4,omitempty"`
-	Field5           []uint32  `protobuf:"varint,5,rep,packed,name=Field5" json:"Field5,omitempty"`
-	Field6           []uint64  `protobuf:"varint,6,rep,packed,name=Field6" json:"Field6,omitempty"`
-	Field7           []int32   `protobuf:"zigzag32,7,rep,packed,name=Field7" json:"Field7,omitempty"`
-	Field8           []int64   `protobuf:"zigzag64,8,rep,packed,name=Field8" json:"Field8,omitempty"`
-	Field9           []uint32  `protobuf:"fixed32,9,rep,packed,name=Field9" json:"Field9,omitempty"`
-	Field10          []int32   `protobuf:"fixed32,10,rep,packed,name=Field10" json:"Field10,omitempty"`
-	Field11          []uint64  `protobuf:"fixed64,11,rep,packed,name=Field11" json:"Field11,omitempty"`
-	Field12          []int64   `protobuf:"fixed64,12,rep,packed,name=Field12" json:"Field12,omitempty"`
-	Field13          []bool    `protobuf:"varint,13,rep,packed,name=Field13" json:"Field13,omitempty"`
-	XXX_unrecognized []byte    `json:"-"`
-}
-
-func (m *NinRepPackedNative) Reset()         { *m = NinRepPackedNative{} }
-func (m *NinRepPackedNative) String() string { return proto.CompactTextString(m) }
-func (*NinRepPackedNative) ProtoMessage()    {}
-
-func (m *NinRepPackedNative) GetField1() []float64 {
-	if m != nil {
-		return m.Field1
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField2() []float32 {
-	if m != nil {
-		return m.Field2
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField3() []int32 {
-	if m != nil {
-		return m.Field3
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField4() []int64 {
-	if m != nil {
-		return m.Field4
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField5() []uint32 {
-	if m != nil {
-		return m.Field5
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField6() []uint64 {
-	if m != nil {
-		return m.Field6
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField7() []int32 {
-	if m != nil {
-		return m.Field7
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField8() []int64 {
-	if m != nil {
-		return m.Field8
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField9() []uint32 {
-	if m != nil {
-		return m.Field9
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField10() []int32 {
-	if m != nil {
-		return m.Field10
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField11() []uint64 {
-	if m != nil {
-		return m.Field11
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField12() []int64 {
-	if m != nil {
-		return m.Field12
-	}
-	return nil
-}
-
-func (m *NinRepPackedNative) GetField13() []bool {
-	if m != nil {
-		return m.Field13
 	}
 	return nil
 }
@@ -874,9 +760,6 @@ func (this *NinOptNative) Description() (desc *google_protobuf.FileDescriptorSet
 func (this *NinRepNative) Description() (desc *google_protobuf.FileDescriptorSet) {
 	return Fuzz2Description()
 }
-func (this *NinRepPackedNative) Description() (desc *google_protobuf.FileDescriptorSet) {
-	return Fuzz2Description()
-}
 func (this *NinOptStruct) Description() (desc *google_protobuf.FileDescriptorSet) {
 	return Fuzz2Description()
 }
@@ -1150,151 +1033,6 @@ func Fuzz2Description() (desc *google_protobuf.FileDescriptorSet) {
 				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
 					return &v
 				}(12),
-			}},
-		}, {Name: func(v string) *string { return &v }("NinRepPackedNative"),
-			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
-				Number: func(v int32) *int32 { return &v }(1),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(1),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field2"),
-				Number: func(v int32) *int32 { return &v }(2),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(2),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field3"),
-				Number: func(v int32) *int32 { return &v }(3),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(5),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field4"),
-				Number: func(v int32) *int32 { return &v }(4),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(3),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field5"),
-				Number: func(v int32) *int32 { return &v }(5),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(13),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field6"),
-				Number: func(v int32) *int32 { return &v }(6),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(4),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field7"),
-				Number: func(v int32) *int32 { return &v }(7),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(17),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field8"),
-				Number: func(v int32) *int32 { return &v }(8),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(18),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field9"),
-				Number: func(v int32) *int32 { return &v }(9),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(7),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field10"),
-				Number: func(v int32) *int32 { return &v }(10),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(15),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field11"),
-				Number: func(v int32) *int32 { return &v }(11),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(6),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field12"),
-				Number: func(v int32) *int32 { return &v }(12),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(16),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
-			}, {Name: func(v string) *string { return &v }("Field13"),
-				Number: func(v int32) *int32 { return &v }(13),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(8),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true),
-					XXX_extensions: map[int32]proto.Extension{},
-				},
 			}},
 		}, {Name: func(v string) *string { return &v }("NinOptStruct"),
 			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
@@ -1949,125 +1687,6 @@ func Fuzz2Description() (desc *google_protobuf.FileDescriptorSet) {
 					return &v
 				}(12),
 			}},
-		}, {Name: func(v string) *string { return &v }("NinRepPackedNative3"),
-			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
-				Number: func(v int32) *int32 { return &v }(1),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(1),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field2"),
-				Number: func(v int32) *int32 { return &v }(2),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(2),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field3"),
-				Number: func(v int32) *int32 { return &v }(3),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(5),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field4"),
-				Number: func(v int32) *int32 { return &v }(4),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(3),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field5"),
-				Number: func(v int32) *int32 { return &v }(5),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(13),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field6"),
-				Number: func(v int32) *int32 { return &v }(6),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(4),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field7"),
-				Number: func(v int32) *int32 { return &v }(7),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(17),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field8"),
-				Number: func(v int32) *int32 { return &v }(8),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(18),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field9"),
-				Number: func(v int32) *int32 { return &v }(9),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(7),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field10"),
-				Number: func(v int32) *int32 { return &v }(10),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(15),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field11"),
-				Number: func(v int32) *int32 { return &v }(11),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(6),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field12"),
-				Number: func(v int32) *int32 { return &v }(12),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(16),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}, {Name: func(v string) *string { return &v }("Field13"),
-				Number: func(v int32) *int32 { return &v }(13),
-				Label: func(v google_protobuf.FieldDescriptorProto_Label) *google_protobuf.FieldDescriptorProto_Label {
-					return &v
-				}(3),
-				Type: func(v google_protobuf.FieldDescriptorProto_Type) *google_protobuf.FieldDescriptorProto_Type {
-					return &v
-				}(8),
-				Options: &google_protobuf.FieldOptions{Packed: func(v bool) *bool { return &v }(true)},
-			}},
 		}, {Name: func(v string) *string { return &v }("NinOptStruct3"),
 			Field: []*google_protobuf.FieldDescriptorProto{{Name: func(v string) *string { return &v }("Field1"),
 				Number: func(v int32) *int32 { return &v }(1),
@@ -2450,57 +2069,6 @@ func (this *NinRepNative) GoString() string {
 	}
 	if this.Field15 != nil {
 		s = append(s, "Field15: "+fmt.Sprintf("%#v", this.Field15)+",\n")
-	}
-	if this.XXX_unrecognized != nil {
-		s = append(s, "XXX_unrecognized:"+fmt.Sprintf("%#v", this.XXX_unrecognized)+",\n")
-	}
-	s = append(s, "}")
-	return strings.Join(s, "")
-}
-func (this *NinRepPackedNative) GoString() string {
-	if this == nil {
-		return "nil"
-	}
-	s := make([]string, 0, 17)
-	s = append(s, "&fuzztests.NinRepPackedNative{")
-	if this.Field1 != nil {
-		s = append(s, "Field1: "+fmt.Sprintf("%#v", this.Field1)+",\n")
-	}
-	if this.Field2 != nil {
-		s = append(s, "Field2: "+fmt.Sprintf("%#v", this.Field2)+",\n")
-	}
-	if this.Field3 != nil {
-		s = append(s, "Field3: "+fmt.Sprintf("%#v", this.Field3)+",\n")
-	}
-	if this.Field4 != nil {
-		s = append(s, "Field4: "+fmt.Sprintf("%#v", this.Field4)+",\n")
-	}
-	if this.Field5 != nil {
-		s = append(s, "Field5: "+fmt.Sprintf("%#v", this.Field5)+",\n")
-	}
-	if this.Field6 != nil {
-		s = append(s, "Field6: "+fmt.Sprintf("%#v", this.Field6)+",\n")
-	}
-	if this.Field7 != nil {
-		s = append(s, "Field7: "+fmt.Sprintf("%#v", this.Field7)+",\n")
-	}
-	if this.Field8 != nil {
-		s = append(s, "Field8: "+fmt.Sprintf("%#v", this.Field8)+",\n")
-	}
-	if this.Field9 != nil {
-		s = append(s, "Field9: "+fmt.Sprintf("%#v", this.Field9)+",\n")
-	}
-	if this.Field10 != nil {
-		s = append(s, "Field10: "+fmt.Sprintf("%#v", this.Field10)+",\n")
-	}
-	if this.Field11 != nil {
-		s = append(s, "Field11: "+fmt.Sprintf("%#v", this.Field11)+",\n")
-	}
-	if this.Field12 != nil {
-		s = append(s, "Field12: "+fmt.Sprintf("%#v", this.Field12)+",\n")
-	}
-	if this.Field13 != nil {
-		s = append(s, "Field13: "+fmt.Sprintf("%#v", this.Field13)+",\n")
 	}
 	if this.XXX_unrecognized != nil {
 		s = append(s, "XXX_unrecognized:"+fmt.Sprintf("%#v", this.XXX_unrecognized)+",\n")
@@ -3012,144 +2580,21 @@ func NewPopulatedNinRepNative(r randyFuzz2, easy bool) *NinRepNative {
 	return this
 }
 
-func NewPopulatedNinRepPackedNative(r randyFuzz2, easy bool) *NinRepPackedNative {
-	this := &NinRepPackedNative{}
-	if r.Intn(10) != 0 {
-		v32 := r.Intn(100)
-		this.Field1 = make([]float64, v32)
-		for i := 0; i < v32; i++ {
-			this.Field1[i] = float64(r.Float64())
-			if r.Intn(2) == 0 {
-				this.Field1[i] *= -1
-			}
-		}
-	}
-	if r.Intn(10) != 0 {
-		v33 := r.Intn(100)
-		this.Field2 = make([]float32, v33)
-		for i := 0; i < v33; i++ {
-			this.Field2[i] = float32(r.Float32())
-			if r.Intn(2) == 0 {
-				this.Field2[i] *= -1
-			}
-		}
-	}
-	if r.Intn(10) != 0 {
-		v34 := r.Intn(100)
-		this.Field3 = make([]int32, v34)
-		for i := 0; i < v34; i++ {
-			this.Field3[i] = int32(r.Int31())
-			if r.Intn(2) == 0 {
-				this.Field3[i] *= -1
-			}
-		}
-	}
-	if r.Intn(10) != 0 {
-		v35 := r.Intn(100)
-		this.Field4 = make([]int64, v35)
-		for i := 0; i < v35; i++ {
-			this.Field4[i] = int64(r.Int63())
-			if r.Intn(2) == 0 {
-				this.Field4[i] *= -1
-			}
-		}
-	}
-	if r.Intn(10) != 0 {
-		v36 := r.Intn(100)
-		this.Field5 = make([]uint32, v36)
-		for i := 0; i < v36; i++ {
-			this.Field5[i] = uint32(r.Uint32())
-		}
-	}
-	if r.Intn(10) != 0 {
-		v37 := r.Intn(100)
-		this.Field6 = make([]uint64, v37)
-		for i := 0; i < v37; i++ {
-			this.Field6[i] = uint64(uint64(r.Uint32()))
-		}
-	}
-	if r.Intn(10) != 0 {
-		v38 := r.Intn(100)
-		this.Field7 = make([]int32, v38)
-		for i := 0; i < v38; i++ {
-			this.Field7[i] = int32(r.Int31())
-			if r.Intn(2) == 0 {
-				this.Field7[i] *= -1
-			}
-		}
-	}
-	if r.Intn(10) != 0 {
-		v39 := r.Intn(100)
-		this.Field8 = make([]int64, v39)
-		for i := 0; i < v39; i++ {
-			this.Field8[i] = int64(r.Int63())
-			if r.Intn(2) == 0 {
-				this.Field8[i] *= -1
-			}
-		}
-	}
-	if r.Intn(10) != 0 {
-		v40 := r.Intn(100)
-		this.Field9 = make([]uint32, v40)
-		for i := 0; i < v40; i++ {
-			this.Field9[i] = uint32(r.Uint32())
-		}
-	}
-	if r.Intn(10) != 0 {
-		v41 := r.Intn(100)
-		this.Field10 = make([]int32, v41)
-		for i := 0; i < v41; i++ {
-			this.Field10[i] = int32(r.Int31())
-			if r.Intn(2) == 0 {
-				this.Field10[i] *= -1
-			}
-		}
-	}
-	if r.Intn(10) != 0 {
-		v42 := r.Intn(100)
-		this.Field11 = make([]uint64, v42)
-		for i := 0; i < v42; i++ {
-			this.Field11[i] = uint64(uint64(r.Uint32()))
-		}
-	}
-	if r.Intn(10) != 0 {
-		v43 := r.Intn(100)
-		this.Field12 = make([]int64, v43)
-		for i := 0; i < v43; i++ {
-			this.Field12[i] = int64(r.Int63())
-			if r.Intn(2) == 0 {
-				this.Field12[i] *= -1
-			}
-		}
-	}
-	if r.Intn(10) != 0 {
-		v44 := r.Intn(100)
-		this.Field13 = make([]bool, v44)
-		for i := 0; i < v44; i++ {
-			this.Field13[i] = bool(bool(r.Intn(2) == 0))
-		}
-	}
-	if !easy && r.Intn(10) != 0 {
-		this.XXX_unrecognized = randUnrecognizedFuzz2(r, 14)
-	}
-	return this
-}
-
 func NewPopulatedNinOptStruct(r randyFuzz2, easy bool) *NinOptStruct {
 	this := &NinOptStruct{}
 	if r.Intn(10) != 0 {
-		v45 := float64(r.Float64())
+		v32 := float64(r.Float64())
 		if r.Intn(2) == 0 {
-			v45 *= -1
+			v32 *= -1
 		}
-		this.Field1 = &v45
+		this.Field1 = &v32
 	}
 	if r.Intn(10) != 0 {
-		v46 := float32(r.Float32())
+		v33 := float32(r.Float32())
 		if r.Intn(2) == 0 {
-			v46 *= -1
+			v33 *= -1
 		}
-		this.Field2 = &v46
+		this.Field2 = &v33
 	}
 	if r.Intn(10) != 0 {
 		this.Field3 = NewPopulatedNinOptNative(r, easy)
@@ -3158,31 +2603,31 @@ func NewPopulatedNinOptStruct(r randyFuzz2, easy bool) *NinOptStruct {
 		this.Field4 = NewPopulatedNinOptNative(r, easy)
 	}
 	if r.Intn(10) != 0 {
-		v47 := uint64(uint64(r.Uint32()))
-		this.Field6 = &v47
+		v34 := uint64(uint64(r.Uint32()))
+		this.Field6 = &v34
 	}
 	if r.Intn(10) != 0 {
-		v48 := int32(r.Int31())
+		v35 := int32(r.Int31())
 		if r.Intn(2) == 0 {
-			v48 *= -1
+			v35 *= -1
 		}
-		this.Field7 = &v48
+		this.Field7 = &v35
 	}
 	if r.Intn(10) != 0 {
 		this.Field8 = NewPopulatedNinOptNative(r, easy)
 	}
 	if r.Intn(10) != 0 {
-		v49 := bool(bool(r.Intn(2) == 0))
-		this.Field13 = &v49
+		v36 := bool(bool(r.Intn(2) == 0))
+		this.Field13 = &v36
 	}
 	if r.Intn(10) != 0 {
-		v50 := randStringFuzz2(r)
-		this.Field14 = &v50
+		v37 := randStringFuzz2(r)
+		this.Field14 = &v37
 	}
 	if r.Intn(10) != 0 {
-		v51 := r.Intn(100)
-		this.Field15 = make([]byte, v51)
-		for i := 0; i < v51; i++ {
+		v38 := r.Intn(100)
+		this.Field15 = make([]byte, v38)
+		for i := 0; i < v38; i++ {
 			this.Field15[i] = byte(r.Intn(256))
 		}
 	}
@@ -3195,9 +2640,9 @@ func NewPopulatedNinOptStruct(r randyFuzz2, easy bool) *NinOptStruct {
 func NewPopulatedNinRepStruct(r randyFuzz2, easy bool) *NinRepStruct {
 	this := &NinRepStruct{}
 	if r.Intn(10) != 0 {
-		v52 := r.Intn(100)
-		this.Field1 = make([]float64, v52)
-		for i := 0; i < v52; i++ {
+		v39 := r.Intn(100)
+		this.Field1 = make([]float64, v39)
+		for i := 0; i < v39; i++ {
 			this.Field1[i] = float64(r.Float64())
 			if r.Intn(2) == 0 {
 				this.Field1[i] *= -1
@@ -3205,9 +2650,9 @@ func NewPopulatedNinRepStruct(r randyFuzz2, easy bool) *NinRepStruct {
 		}
 	}
 	if r.Intn(10) != 0 {
-		v53 := r.Intn(100)
-		this.Field2 = make([]float32, v53)
-		for i := 0; i < v53; i++ {
+		v40 := r.Intn(100)
+		this.Field2 = make([]float32, v40)
+		for i := 0; i < v40; i++ {
 			this.Field2[i] = float32(r.Float32())
 			if r.Intn(2) == 0 {
 				this.Field2[i] *= -1
@@ -3215,30 +2660,30 @@ func NewPopulatedNinRepStruct(r randyFuzz2, easy bool) *NinRepStruct {
 		}
 	}
 	if r.Intn(10) != 0 {
-		v54 := r.Intn(10)
-		this.Field3 = make([]*NinOptNative, v54)
-		for i := 0; i < v54; i++ {
+		v41 := r.Intn(10)
+		this.Field3 = make([]*NinOptNative, v41)
+		for i := 0; i < v41; i++ {
 			this.Field3[i] = NewPopulatedNinOptNative(r, easy)
 		}
 	}
 	if r.Intn(10) != 0 {
-		v55 := r.Intn(10)
-		this.Field4 = make([]*NinOptNative, v55)
-		for i := 0; i < v55; i++ {
+		v42 := r.Intn(10)
+		this.Field4 = make([]*NinOptNative, v42)
+		for i := 0; i < v42; i++ {
 			this.Field4[i] = NewPopulatedNinOptNative(r, easy)
 		}
 	}
 	if r.Intn(10) != 0 {
-		v56 := r.Intn(100)
-		this.Field6 = make([]uint64, v56)
-		for i := 0; i < v56; i++ {
+		v43 := r.Intn(100)
+		this.Field6 = make([]uint64, v43)
+		for i := 0; i < v43; i++ {
 			this.Field6[i] = uint64(uint64(r.Uint32()))
 		}
 	}
 	if r.Intn(10) != 0 {
-		v57 := r.Intn(100)
-		this.Field7 = make([]int32, v57)
-		for i := 0; i < v57; i++ {
+		v44 := r.Intn(100)
+		this.Field7 = make([]int32, v44)
+		for i := 0; i < v44; i++ {
 			this.Field7[i] = int32(r.Int31())
 			if r.Intn(2) == 0 {
 				this.Field7[i] *= -1
@@ -3246,33 +2691,33 @@ func NewPopulatedNinRepStruct(r randyFuzz2, easy bool) *NinRepStruct {
 		}
 	}
 	if r.Intn(10) != 0 {
-		v58 := r.Intn(10)
-		this.Field8 = make([]*NinOptNative, v58)
-		for i := 0; i < v58; i++ {
+		v45 := r.Intn(10)
+		this.Field8 = make([]*NinOptNative, v45)
+		for i := 0; i < v45; i++ {
 			this.Field8[i] = NewPopulatedNinOptNative(r, easy)
 		}
 	}
 	if r.Intn(10) != 0 {
-		v59 := r.Intn(100)
-		this.Field13 = make([]bool, v59)
-		for i := 0; i < v59; i++ {
+		v46 := r.Intn(100)
+		this.Field13 = make([]bool, v46)
+		for i := 0; i < v46; i++ {
 			this.Field13[i] = bool(bool(r.Intn(2) == 0))
 		}
 	}
 	if r.Intn(10) != 0 {
-		v60 := r.Intn(10)
-		this.Field14 = make([]string, v60)
-		for i := 0; i < v60; i++ {
+		v47 := r.Intn(10)
+		this.Field14 = make([]string, v47)
+		for i := 0; i < v47; i++ {
 			this.Field14[i] = randStringFuzz2(r)
 		}
 	}
 	if r.Intn(10) != 0 {
-		v61 := r.Intn(100)
-		this.Field15 = make([][]byte, v61)
-		for i := 0; i < v61; i++ {
-			v62 := r.Intn(100)
-			this.Field15[i] = make([]byte, v62)
-			for j := 0; j < v62; j++ {
+		v48 := r.Intn(100)
+		this.Field15 = make([][]byte, v48)
+		for i := 0; i < v48; i++ {
+			v49 := r.Intn(100)
+			this.Field15[i] = make([]byte, v49)
+			for j := 0; j < v49; j++ {
 				this.Field15[i][j] = byte(r.Intn(256))
 			}
 		}
@@ -3289,9 +2734,9 @@ func NewPopulatedNinNestedStruct(r randyFuzz2, easy bool) *NinNestedStruct {
 		this.Field1 = NewPopulatedNinOptStruct(r, easy)
 	}
 	if r.Intn(10) != 0 {
-		v63 := r.Intn(10)
-		this.Field2 = make([]*NinRepStruct, v63)
-		for i := 0; i < v63; i++ {
+		v50 := r.Intn(10)
+		this.Field2 = make([]*NinRepStruct, v50)
+		for i := 0; i < v50; i++ {
 			this.Field2[i] = NewPopulatedNinRepStruct(r, easy)
 		}
 	}
@@ -3312,11 +2757,11 @@ func NewPopulatedNil(r randyFuzz2, easy bool) *Nil {
 func NewPopulatedNestedDefinition(r randyFuzz2, easy bool) *NestedDefinition {
 	this := &NestedDefinition{}
 	if r.Intn(10) != 0 {
-		v64 := int64(r.Int63())
+		v51 := int64(r.Int63())
 		if r.Intn(2) == 0 {
-			v64 *= -1
+			v51 *= -1
 		}
-		this.Field1 = &v64
+		this.Field1 = &v51
 	}
 	if r.Intn(10) != 0 {
 		this.NNM = NewPopulatedNestedDefinition_NestedMessage_NestedNestedMsg(r, easy)
@@ -3333,8 +2778,8 @@ func NewPopulatedNestedDefinition(r randyFuzz2, easy bool) *NestedDefinition {
 func NewPopulatedNestedDefinition_NestedMessage(r randyFuzz2, easy bool) *NestedDefinition_NestedMessage {
 	this := &NestedDefinition_NestedMessage{}
 	if r.Intn(10) != 0 {
-		v65 := uint64(uint64(r.Uint32()))
-		this.NestedField1 = &v65
+		v52 := uint64(uint64(r.Uint32()))
+		this.NestedField1 = &v52
 	}
 	if r.Intn(10) != 0 {
 		this.NNM = NewPopulatedNestedDefinition_NestedMessage_NestedNestedMsg(r, easy)
@@ -3348,8 +2793,8 @@ func NewPopulatedNestedDefinition_NestedMessage(r randyFuzz2, easy bool) *Nested
 func NewPopulatedNestedDefinition_NestedMessage_NestedNestedMsg(r randyFuzz2, easy bool) *NestedDefinition_NestedMessage_NestedNestedMsg {
 	this := &NestedDefinition_NestedMessage_NestedNestedMsg{}
 	if r.Intn(10) != 0 {
-		v66 := randStringFuzz2(r)
-		this.NestedNestedField1 = &v66
+		v53 := randStringFuzz2(r)
+		this.NestedNestedField1 = &v53
 	}
 	if !easy && r.Intn(10) != 0 {
 		this.XXX_unrecognized = randUnrecognizedFuzz2(r, 11)
@@ -3374,89 +2819,89 @@ func NewPopulatedNestedScope(r randyFuzz2, easy bool) *NestedScope {
 func NewPopulatedNinOptNativeDefault(r randyFuzz2, easy bool) *NinOptNativeDefault {
 	this := &NinOptNativeDefault{}
 	if r.Intn(10) != 0 {
-		v67 := float64(r.Float64())
+		v54 := float64(r.Float64())
 		if r.Intn(2) == 0 {
-			v67 *= -1
+			v54 *= -1
 		}
-		this.Field1 = &v67
+		this.Field1 = &v54
 	}
 	if r.Intn(10) != 0 {
-		v68 := float32(r.Float32())
+		v55 := float32(r.Float32())
 		if r.Intn(2) == 0 {
-			v68 *= -1
+			v55 *= -1
 		}
-		this.Field2 = &v68
+		this.Field2 = &v55
 	}
 	if r.Intn(10) != 0 {
-		v69 := int32(r.Int31())
+		v56 := int32(r.Int31())
 		if r.Intn(2) == 0 {
-			v69 *= -1
+			v56 *= -1
 		}
-		this.Field3 = &v69
+		this.Field3 = &v56
 	}
 	if r.Intn(10) != 0 {
-		v70 := int64(r.Int63())
+		v57 := int64(r.Int63())
 		if r.Intn(2) == 0 {
-			v70 *= -1
+			v57 *= -1
 		}
-		this.Field4 = &v70
+		this.Field4 = &v57
 	}
 	if r.Intn(10) != 0 {
-		v71 := uint32(r.Uint32())
-		this.Field5 = &v71
+		v58 := uint32(r.Uint32())
+		this.Field5 = &v58
 	}
 	if r.Intn(10) != 0 {
-		v72 := uint64(uint64(r.Uint32()))
-		this.Field6 = &v72
+		v59 := uint64(uint64(r.Uint32()))
+		this.Field6 = &v59
 	}
 	if r.Intn(10) != 0 {
-		v73 := int32(r.Int31())
+		v60 := int32(r.Int31())
 		if r.Intn(2) == 0 {
-			v73 *= -1
+			v60 *= -1
 		}
-		this.Field7 = &v73
+		this.Field7 = &v60
 	}
 	if r.Intn(10) != 0 {
-		v74 := int64(r.Int63())
+		v61 := int64(r.Int63())
 		if r.Intn(2) == 0 {
-			v74 *= -1
+			v61 *= -1
 		}
-		this.Field8 = &v74
+		this.Field8 = &v61
 	}
 	if r.Intn(10) != 0 {
-		v75 := uint32(r.Uint32())
-		this.Field9 = &v75
+		v62 := uint32(r.Uint32())
+		this.Field9 = &v62
 	}
 	if r.Intn(10) != 0 {
-		v76 := int32(r.Int31())
+		v63 := int32(r.Int31())
 		if r.Intn(2) == 0 {
-			v76 *= -1
+			v63 *= -1
 		}
-		this.Field10 = &v76
+		this.Field10 = &v63
 	}
 	if r.Intn(10) != 0 {
-		v77 := uint64(uint64(r.Uint32()))
-		this.Field11 = &v77
+		v64 := uint64(uint64(r.Uint32()))
+		this.Field11 = &v64
 	}
 	if r.Intn(10) != 0 {
-		v78 := int64(r.Int63())
+		v65 := int64(r.Int63())
 		if r.Intn(2) == 0 {
-			v78 *= -1
+			v65 *= -1
 		}
-		this.Field12 = &v78
+		this.Field12 = &v65
 	}
 	if r.Intn(10) != 0 {
-		v79 := bool(bool(r.Intn(2) == 0))
-		this.Field13 = &v79
+		v66 := bool(bool(r.Intn(2) == 0))
+		this.Field13 = &v66
 	}
 	if r.Intn(10) != 0 {
-		v80 := randStringFuzz2(r)
-		this.Field14 = &v80
+		v67 := randStringFuzz2(r)
+		this.Field14 = &v67
 	}
 	if r.Intn(10) != 0 {
-		v81 := r.Intn(100)
-		this.Field15 = make([]byte, v81)
-		for i := 0; i < v81; i++ {
+		v68 := r.Intn(100)
+		this.Field15 = make([]byte, v68)
+		for i := 0; i < v68; i++ {
 			this.Field15[i] = byte(r.Intn(256))
 		}
 	}
@@ -3485,9 +2930,9 @@ func randUTF8RuneFuzz2(r randyFuzz2) rune {
 	return rune(ru + 61)
 }
 func randStringFuzz2(r randyFuzz2) string {
-	v82 := r.Intn(100)
-	tmps := make([]rune, v82)
-	for i := 0; i < v82; i++ {
+	v69 := r.Intn(100)
+	tmps := make([]rune, v69)
+	for i := 0; i < v69; i++ {
 		tmps[i] = randUTF8RuneFuzz2(r)
 	}
 	return string(tmps)
@@ -3509,11 +2954,11 @@ func randFieldFuzz2(data []byte, r randyFuzz2, fieldNumber int, wire int) []byte
 	switch wire {
 	case 0:
 		data = encodeVarintPopulateFuzz2(data, uint64(key))
-		v83 := r.Int63()
+		v70 := r.Int63()
 		if r.Intn(2) == 0 {
-			v83 *= -1
+			v70 *= -1
 		}
-		data = encodeVarintPopulateFuzz2(data, uint64(v83))
+		data = encodeVarintPopulateFuzz2(data, uint64(v70))
 	case 1:
 		data = encodeVarintPopulateFuzz2(data, uint64(key))
 		data = append(data, byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)))
