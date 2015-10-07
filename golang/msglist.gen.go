@@ -12,6 +12,7 @@ type Message interface {
 var NewFuncs = []func() Message{
 	func() Message { return &NinOptNative{} },
 	func() Message { return &NinRepNative{} },
+	func() Message { return &NinRepPackedNative{} },
 	func() Message { return &NinOptStruct{} },
 	func() Message { return &NinRepStruct{} },
 	func() Message { return &NinNestedStruct{} },
@@ -21,6 +22,7 @@ var NewFuncs = []func() Message{
 	func() Message { return &NinOptNativeDefault{} },
 	func() Message { return &NinOptNative3{} },
 	func() Message { return &NinRepNative3{} },
+	func() Message { return &NinRepPackedNative3{} },
 	func() Message { return &NinOptStruct3{} },
 	func() Message { return &NinRepStruct3{} },
 	func() Message { return &NinNestedStruct3{} },

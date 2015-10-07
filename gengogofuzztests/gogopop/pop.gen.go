@@ -6,6 +6,7 @@ package fuzztests
 var popFuncs = []interface{}{
 	NewPopulatedNinOptNative,
 	NewPopulatedNinRepNative,
+	NewPopulatedNinRepPackedNative,
 	NewPopulatedNinOptStruct,
 	NewPopulatedNinRepStruct,
 	NewPopulatedNinNestedStruct,
@@ -15,6 +16,7 @@ var popFuncs = []interface{}{
 	NewPopulatedNinOptNativeDefault,
 	NewPopulatedNinOptNative3,
 	NewPopulatedNinRepNative3,
+	NewPopulatedNinRepPackedNative3,
 	NewPopulatedNinOptStruct3,
 	NewPopulatedNinRepStruct3,
 	NewPopulatedNinNestedStruct3,
